@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.date :datetime
-      t.string :stage
+      t.string :state
     
 
       t.belongs_to :city

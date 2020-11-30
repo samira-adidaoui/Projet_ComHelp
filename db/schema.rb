@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_004659) do
     t.string "title"
     t.text "description"
     t.date "datetime"
-    t.string "stage"
+    t.string "state"
     t.bigint "city_id"
     t.bigint "user_id"
     t.bigint "category_id"
@@ -64,13 +64,11 @@ ActiveRecord::Schema.define(version: 2020_11_30_004659) do
     t.string "last_name"
     t.integer "notation"
     t.bigint "city_id"
-    t.bigint "participation_id"
     t.boolean "is_admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["participation_id"], name: "index_users_on_participation_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

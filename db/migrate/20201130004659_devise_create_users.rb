@@ -35,7 +35,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.integer :notation
       t.belongs_to :city
-      t.belongs_to :participation
       t.boolean :is_admin
 
       t.timestamps null: false
