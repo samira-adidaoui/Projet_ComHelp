@@ -1,0 +1,43 @@
+
+  <div class="container-fluid mx-auto">
+      <div class="col-12 col-md-7 col-xl-8 mx-auto my-5">
+        <div class="row h-100">
+          <div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
+            <div class="w-100">
+              <img src="https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/logo.png" alt="">
+              <h2 class="">Inscrivez-vous maintenant</h2>
+              <div class="form mt-4 ">
+
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :password, "Mot de passe" %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> charactère minimun)</em>
+                  <% end %><br />
+                      <%= f.password_field :password, autocomplete: "new-password" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :password_confirmation, "Confirmez mot de passe" %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "Inscrivez-vous", class: "btn btn-primary", style: "width:204px;"%>                  </div>
+                  <% end %>
+
+                    <p>Tu as déjà un compte chez nous ? </p>
+                    <%= render "devise/shared/links" %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
