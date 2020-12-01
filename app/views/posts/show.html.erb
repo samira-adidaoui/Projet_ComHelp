@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">ComHelp</h1>
+					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9"><%=@post.category.name%></h1>
 				</div>
 			</div>
 		</div>
@@ -24,17 +24,18 @@
 						<h2><span class="text-primary"> <%=@post.title%> </span></h2>
 						<p class="mb-0">Description : <%=@post.description%> </p>
 						<div class="list-group-inline list-group-number list-unstyled mt-4">
-							<a href="#" class="list-group-item list-group-item-action"><span>01</span> Creative Ideas</a>
-							<a href="#" class="list-group-item list-group-item-action"><span>02</span> Super Responsive for all devices</a>
-							<a href="#" class="list-group-item list-group-item-action"><span>03</span> Extensive documentation</a>
-							<a href="#" class="list-group-item list-group-item-action"><span>04</span> Excellent features</a>
+						 <p> Paticipant(s):</p>
+							<%@participation.each do |participation|%>
+								<p> 
+									<%= link_to "#{participation.user.first_name}", user_path(participation.id) %>	
+								</p>
+							<%end%>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
-					<img class="rounded" src="assets/images/blog/02.jpg" alt="">
-					<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
-						<a class="btn btn-grad" data-fancybox="" href="https://youtu.be/n_Cn8eFo7u8"> <i class="fa fa-play text-white"></i>Play Video </a>
+					<img class="card-img" src="<%=@post.category.picture_url%>">
+				<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
 					</div>
 				</div>
 			</div>
