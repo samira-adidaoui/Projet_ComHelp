@@ -27,6 +27,7 @@ Participation.reset_pk_sequence
 t1 = Time.parse("2020-11-01 14:40:34")
 t2 = Time.parse("2022-01-01 00:00:00")
 
+
 10.times do
     City.create(city_name: Faker::Address.city)
 end
