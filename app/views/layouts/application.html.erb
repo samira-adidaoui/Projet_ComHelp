@@ -6,14 +6,20 @@
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/18f2e2cbfa.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all'%>
-    
+
   </head>
 
   <body>
+
       <%= render 'layouts/navbar'%>
       <%= render 'layouts/flash'%>
 
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+
+     <%= render 'layouts/footer'%>
+
   </body>
+
+  
 </html>
