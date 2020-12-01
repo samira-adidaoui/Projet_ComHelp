@@ -27,13 +27,26 @@ Participation.reset_pk_sequence
 t1 = Time.parse("2020-11-01 14:40:34")
 t2 = Time.parse("2022-01-01 00:00:00")
 
+category_array = ["Bricolage","Jardinage","Soutien scolaire","Garde d'enfants","Dons de matériel","Service à la personne","Animaux","Informatique/Bureautique","Administratif"]
+
+picture_array = ["https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/Bricolage+1280.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/jardinage+1280.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/cours+particuliers/cours+particuliers.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/enfants/les+petits+nouveau+2.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/demenagement/d%C3%A9m%C3%A9nagement.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/dons/dons+de+materiel.jpeg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Service+%C3%A0+la+personne/services-%C3%A0-la-personne.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/animaux/Animaux.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/informatique_bureautique/informatique_bureautique.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/administratif/Administratif.jpg"]
 
 10.times do
     City.create(city_name: Faker::Address.city)
 end
 
-10.times do
-    Category.create(name: Faker::Job.field)
+(category_array.length).times do |i|
+    Category.create(name: category_array[i],
+    picture_url: picture_array[i])
 end
 
 10.times do
@@ -41,7 +54,7 @@ end
 end  
 
 10.times do
-    Post.create( datetime: rand(t1..t2), title: Faker::Lorem.sentence(word_count: 6), user: User.all.sample, description: Faker::Lorem.sentence(word_count: 30), city: City.all.sample, category: Category.all.sample)
+    Post.create(datetime: rand(t1..t2), title: Faker::Lorem.sentence(word_count: 6), user: User.all.sample, description: Faker::Lorem.sentence(word_count: 30), city: City.all.sample, category: Category.all.sample)
   end
 
 10.times do
