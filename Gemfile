@@ -59,15 +59,6 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-<<<<<<< HEAD
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "devise"
-gem "faker"
-gem "table_print"
-gem 'activerecord-reset-pk-sequence'
-gem "bootstrap"
-=======
 gem 'devise'
 gem 'faker'
 gem 'table_print'
@@ -77,6 +68,3 @@ gem 'bootstrap'
 gem 'letter_opener'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'stripe'
-
-
->>>>>>> develop
