@@ -6,7 +6,7 @@
          <% if user_signed_in? && current_user.id == @user.id %>
     	     <div class="card border" >
   			     <div class="card-body">
-     			     <h4>Mes données personnelles :</h4>
+     			     <h4><b>Mes données personnelles :</b></h4>
      			     <hr>
 				          <ul class="list">
   					          <li><h6>Mon <b>prénom</b> : <%= @user.first_name %></h6></li>
@@ -22,7 +22,7 @@
         <% else %>
           <div class="card border">
             <div class="card-body">
-              <h4>Données personnelles de <%= @user.first_name %> :</h4>
+              <h4><b>Données personnelles de <%= @user.first_name %> :</b></h4>
               <hr>
               <ul class="list">
                   <li><h6><b>Prénom</b> : <%= @user.first_name %></h6></li>
@@ -76,3 +76,4 @@
 		<br>
 	</div>
 </div>
+
