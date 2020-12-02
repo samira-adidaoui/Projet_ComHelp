@@ -27,7 +27,4 @@ class PostsController < ApplicationController
     redirect_to admin_posts_path
   end
 end
-
 end
-                                                                                                                            31,1          Bas
-

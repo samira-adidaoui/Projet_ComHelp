@@ -30,5 +30,5 @@ class UsersController < ApplicationController
     redirect_to admin_users_path
   end
 end
-                                                                                                                            17,1-2        88%
+
 end

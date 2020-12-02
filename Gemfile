@@ -68,3 +68,4 @@ gem 'bootstrap'
 gem 'letter_opener'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'stripe'
+gem 'devise-i18n'
