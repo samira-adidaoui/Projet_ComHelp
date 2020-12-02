@@ -34,7 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.integer :notation
-      t.belongs_to :city    
       t.boolean :is_admin
       
 
