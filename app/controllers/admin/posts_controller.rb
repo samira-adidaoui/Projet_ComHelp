@@ -16,12 +16,10 @@ class PostsController < ApplicationController
   def update
     @post=Post.find(params[:id])
 
-    namePost = params[:post][:name]
-    price = params[:post][:price]
-    url = params[:post][:url]
+    title = params[:post][:title]
     description = params[:post][:description]
     category_id = params[:post][:category_id]
-      @post.update(name:namePost,price:price, url:url, description:description, category_id:category_id)
+      @post.update(title:title,description:description,category_id:category_id)
 
       redirect_to admin_posts_path
   end
