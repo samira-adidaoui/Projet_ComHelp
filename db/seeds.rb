@@ -27,7 +27,16 @@ Participation.reset_pk_sequence
 t1 = Time.parse("2020-11-01 14:40:34")
 t2 = Time.parse("2022-01-01 00:00:00")
 
-category_array = ["Bricolage","Jardinage","Soutien scolaire","Garde d'enfants","Dons de matériel","Service à la personne","Animaux","Informatique/Bureautique","Administratif"]
+category_array = ["Bricolage",
+                "Jardinage",
+                "Soutien scolaire",
+                "Garde d'enfants",
+                "Dons de matériel", 
+                "Déménagement",
+                "Service à la personne",
+                "Animaux",
+                "Informatique/Bureautique","
+                Administratif"]
 
 picture_array = ["https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/Bricolage+1280.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/jardinage+1280.jpg",
