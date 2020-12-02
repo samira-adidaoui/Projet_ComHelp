@@ -59,7 +59,7 @@ end
 end
 
 10.times do
-    User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, city: City.all.sample, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
+    User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end  
 
 10.times do
