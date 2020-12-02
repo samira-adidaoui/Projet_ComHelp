@@ -6,7 +6,7 @@ class ApplicationController < ::ApplicationController
   private
 
     def only_admin
-        if ! current_user.is_admin
+        if ! user_signed_in? || ! current_user.is_admin?
             flash[:danger] = "Vous ne pouvez pas acceder à cette page"
             redirect_to root_path
         end

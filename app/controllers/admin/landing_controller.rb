@@ -7,4 +7,4 @@ module Admin
   end
 
 end
-~    
+  
