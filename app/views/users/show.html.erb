@@ -1,0 +1,78 @@
+<div class="row">
+  	<div class="col-md-4" style="background-image: url(https://images.pexels.com/photos/4113831/pexels-photo-4113831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);"></div>
+  	   <div class="col-md-1"></div>
+  	     <div class="col-md-5">
+  		   <br>
+         <% if user_signed_in? && current_user.id == @user.id %>
+    	     <div class="card border" >
+  			     <div class="card-body">
+     			     <h4><b>Mes données personnelles :</b></h4>
+     			     <hr>
+				          <ul class="list">
+  					          <li><h6>Mon <b>prénom</b> : <%= @user.first_name %></h6></li>
+    				          <li><h6>Mon <b>nom</b> : <%= @user.last_name %></h6></li>
+					            <li><h6>Mon <b>e-mail</b> : <%= @user.email %></h6></li>
+                      <li><h6>Ma <b>note actuelle</b> : <%= @user.notation %></h6></li>
+				          </ul>
+	    		         <hr>
+	   			         <h6 class="profile-pad">Je souhaite modifier mon données persos ou mon mot de passe ?</h6>
+                   <%= link_to "C'est par ici !", edit_user_path(@user.id), class: 'btn btn-primary profile-btn' %>
+  			     </div>
+          </div>
+        <% else %>
+          <div class="card border">
+            <div class="card-body">
+              <h4><b>Données personnelles de <%= @user.first_name %> :</b></h4>
+              <hr>
+              <ul class="list">
+                  <li><h6><b>Prénom</b> : <%= @user.first_name %></h6></li>
+                  <li><h6><b>Nom</b> : <%= @user.last_name %></h6></li>
+                  <li><h6><b>Adresse e-mail</b> : <%= @user.email %></h6></li>
+                  <li><h6><b>Note actuelle</b> : <%= @user.notation %></h6></li>
+              </ul>
+              <hr>
+              <h6 class="profile-pad">Vous souhaitez envoyer un message privé à <%= @user.first_name %> ?</h6>
+              <%= link_to "C'est par ici !", edit_user_path(@user.id), class: 'btn btn-primary profile-btn' %>
+            </div>
+          </div>
+      <% end %>
+        <br>
+        <hr>
+        <br>
+    
+      <% if user_signed_in? && current_user.id == @user.id %>
+        <h2 class="lead-color"><b>Mes annonces :</b></h2>
+        <% else %>
+          <% if @user.created_posts.count != 0 %>
+            <h2 class="lead-color"><b>Annonces postées par <%= @user.first_name %> :</b></h2>
+            <ul>
+              <% @user.created_posts.each do |post| %>
+              <li><%=post.title%>, le <%= post.datetime %> </li>
+             <% end %>
+            </ul>
+          <% else %>
+            <h2 class="lead-color"><b><%= @user.first_name %> n'a encore posté aucune annonce.</b></h2>
+          <% end %>
+        <br>
+      <% end %>
+              <% if user_signed_in? && current_user.id == @user.id %>
+                <h2 class="lead-color"><b>Les annonces auxquelles j'ai répondu :</b></h2>
+              <% else %>
+                <% if @user.answered_posts.count != 0 %>
+                  <h2 class="lead-color"><b>Les annonces auxquelles <%= @user.first_name %> a répondu :</b></h2>
+                  <ul>
+                    <% @user.answered_posts.each do |post| %>
+                      <li><%=post.title%>, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
+                    <% end %>
+                  </ul>
+                <% else %>
+            <h2 class="lead-color"><b><%= @user.first_name %> n'a encore répondu à aucune annonce.</b></h2>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+		<br>
+		<br>
+		<br>
+
+
