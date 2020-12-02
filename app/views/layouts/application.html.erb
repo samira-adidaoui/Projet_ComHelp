@@ -10,10 +10,16 @@
   </head>
 
   <body>
+
       <%= render 'layouts/navbar'%>
       <%= render 'layouts/flash'%>
 
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+
+     <%= render 'layouts/footer'%>
+
   </body>
+
+  
 </html>
