@@ -1,11 +1,8 @@
 class CategoriesController < ApplicationController
-<<<<<<< HEAD
-  def show
-    
-  end
-=======
+
     def show
-        @category = Category.all
+        @category = Category.find_by_id(params[:id])
+        @post = Post.where(:category_id => @category.id)  
     end
->>>>>>> 1efa4e7a85656c36ca5a9a9a8ef7bcd4768df2d2
+
 end
