@@ -7,6 +7,7 @@ gem 'aws-sdk-s3', require: false
 #gem 'active_storage'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+gem 'rails-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -67,5 +68,7 @@ gem 'jquery-rails'
 gem 'bootstrap'
 gem 'letter_opener'
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'stripe'
-gem 'devise-i18n'
+
+
+
+
