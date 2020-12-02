@@ -36,9 +36,14 @@
       </div>
       <div class="d-flex justify-content-end">
         <ul class="navbar-nav mr-auto" >
-            <li class="nav-item p-2">
+          <li class="nav-item p-2">
             <%= link_to "A Propos", team_index_path, :class => "nav-link" %>
           </li>
+					<% if user_signed_in? && current_user.is_admin %>
+          <li class="nav-item p-2">
+            <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>
+          </li>
+          <% end %>
         </ul>
       </div> 
     </div>
