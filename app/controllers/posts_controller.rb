@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
-    @user = Participation.where(:post_id => @post.id)  
+    @participant = Participation.where(:post_id => @post.id)  
+
   end
 end

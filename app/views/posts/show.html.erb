@@ -1,7 +1,5 @@
 <body>
 
-	<!-- =======================
-	Banner innerpage -->
 	<div class="left bg-grad pattern-overlay-4">
 		<div class="container">
 			<div class="row all-text-white">
@@ -21,12 +19,23 @@
 						<p class="mb-0">Description : <%=@post.description%> </p>
 
 						<div class="list-group-inline list-group-number list-unstyled mt-4">
-						 <p> Nombre de Paticipants: <%= @user.count %></p>
-						<%@user.each do |i|%>
-						 	<p> Paticipant(s): <%= i.id %></p>
+						 <p> Nombre de Paticipants: <%= @participant.count %></p>
+						 Paticipant(s):
+						<%@participant.each do |participant|%>
+							<% if user_signed_in? %>
+								<%= link_to participant.user.first_name, user_path(:id => user.id)%> /
+							<% else %>
+								<%= link_to participant.user.first_name, new_user_session_path %> /
+							<%end%>
 						<%end%>
 						<p class="mb-0">Date : <%=@post.datetime%> </p>
-						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name}"%> </p>
+						<% if user_signed_in? %>
+
+						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}" %> </p>
+						<% else %>
+						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}", new_user_session_path %> </p>
+
+						<%end%>
 
 						</div>
 					</div>
@@ -38,9 +47,18 @@
 				</div>
 			</div>
 			<%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-outline-warning btn-sm', style: 'margin-right: 10px' %>
-			<%= link_to "Apporter son aide", new_post_path(event_id: @post.id), class: 'btn btn-outline-primary btn-sm' %>
-			  <%= link_to "Mon espace personnel", user_registration_path, class: 'btn btn-outline-danger btn-sm', style: 'margin-right: 10px' %>
-	</section>
+			<%if current_user != #{@post.user.id}%>
+				<% if user_signed_in? %>
+					<%= link_to "Apporter son aide", new_post_path(event_id: @post.id), class: 'btn btn-outline-primary btn-sm' %>
+				<% else %>
+					<%= link_to "Apporter son aide", new_user_session_path, class: 'btn btn-outline-primary btn-sm' %>
+				<%end%>
+			<%end%>
+			<%if current_user == #{@post.user.id}%>
+				<%= link_to "Mon espace personnel", user_path(:id => current_user.id), class: 'btn btn-outline-danger btn-sm', style: 'margin-right: 10px' %>
+			<%end%>
+
+		</section>
 
 </body>
 
