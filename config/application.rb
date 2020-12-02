@@ -17,5 +17,6 @@ module ComHelp
     # the framework and any gems in your application.
     config.i18n.available_locales = [:en, :fr]
     config.i18n.default_locale = :fr
+    config.i18n.fallbacks = true
   end
 end
