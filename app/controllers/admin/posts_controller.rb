@@ -4,6 +4,11 @@ class PostsController < ApplicationController
   def index
   end
 
+	def create
+		Post.find(params[:id]).update(is_validates:true)
+		redirect_to admin_posts_path
+	end
+
   def edit
     @post = Post.find(params[:id])
   end
