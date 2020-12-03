@@ -4,6 +4,9 @@ class PostsController < ApplicationController
     @category = Category.all
   end
 
+  def new
+  end
+
   def show
     @post = Post.find_by_id(params[:id])
     @participant = Participation.where(:post_id => @post.id)  
