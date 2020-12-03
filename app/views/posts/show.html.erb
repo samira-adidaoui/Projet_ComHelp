@@ -57,11 +57,13 @@
 			<%if current_user == #{@post.user.id}%>
 				<%= link_to "Mon espace personnel", user_path(:id => current_user.id), class: 'btn btn-outline-danger btn-sm', style: 'margin-right: 10px' %>
 			<%end%>
-
-			<div>
-				<p><%= link_to "Modifier", edit_post_path(@post.id), :class => "text-info pull-right" %></p><br>
-            	<p><%= link_to "Supprimer", @post, :confirm => "Ce post sera supprimé définitivement!", :method => :delete, :class => "text-danger pull-right" %></p>
-            </div>
+			
+			<% if current_user && @post.user == current_user %>
+				<div>
+					<p><%= link_to "Modifier", edit_post_path(@post.id), :class => "text-info pull-right" %></p><br>
+					<p><%= link_to "Supprimer", @post, :confirm => "Ce post sera supprimé définitivement!", :method => :delete, :class => "text-danger pull-right" %></p>
+				</div>
+			<%end%>
 
 		</section>
 

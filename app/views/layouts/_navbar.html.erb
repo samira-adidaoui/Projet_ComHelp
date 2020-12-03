@@ -39,6 +39,11 @@
           <li class="nav-item p-2">
             <%= link_to "A Propos", team_index_path, :class => "nav-link" %>
           </li>
+          <% if user_signed_in? %>
+          <li class="nav-item p-2">
+            <%= link_to "Créer une annonce", new_post_path, :class => "nav-link" %>
+          </li>
+          <%end%>
 					<% if user_signed_in? && current_user.is_admin %>
           <li class="nav-item p-2">
             <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>

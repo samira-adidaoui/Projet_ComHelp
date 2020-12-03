@@ -1,4 +1,7 @@
 class ParticipationsController < ApplicationController
+
+    before_action :authenticate, only: [:create]
+
     def new
         participation = Participation.new
         @post = Post.find(params[:post_id])
@@ -10,6 +13,7 @@ class ParticipationsController < ApplicationController
     end
 
     def create
+
         @post = Post.find(params[:post_id])
         @participation = Participation.new(user_id: current_user.id, post_id: @post.id)
 
@@ -21,7 +25,13 @@ class ParticipationsController < ApplicationController
         end
     end
     
-
+    private
+    def authenticate
+        if current_user == nil
+            flash[:danger] = "Vous devez être connecté pour effectuer cette action"
+            redirect_to posts_path
+        end
+    end
    
       
 end
