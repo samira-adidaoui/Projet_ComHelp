@@ -99,7 +99,7 @@
                 <p class="card-text">Categorie :<%= post.category.name %></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <%= link_to "Participer", post_path(post.id),  :class => "btn btn-primary" %>
+                    <%= link_to "Participer", new_post_participation_path(@post),  :class => "btn btn-primary" %>
                     <%= link_to "voir plus", post_path(post.id),  :class => "btn btn-outline-primary" %>
                   </div>
                 </div>
