@@ -20,10 +20,10 @@
 
 						<div class="list-group-inline list-group-number list-unstyled mt-4">
 						 <p> Nombre de Paticipants: <%= @participant.count %></p>
-						 Paticipant(s):
+						 Participant(s):
 						<%@participant.each do |participant|%>
 							<% if user_signed_in? %>
-								<%= link_to participant.user.first_name, user_path(:id => user.id)%> /
+								<%= link_to participant.user.first_name, user_path(participant.user.id)%> /
 							<% else %>
 								<%= link_to participant.user.first_name, new_user_session_path %> /
 							<%end%>
@@ -31,7 +31,7 @@
 						<p class="mb-0">Date : <%=@post.datetime%> </p>
 						<% if user_signed_in? %>
 
-						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}" %> </p>
+						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}", user_path(@post.user.id)%> </p>
 						<% else %>
 						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}", new_user_session_path %> </p>
 
@@ -49,7 +49,7 @@
 			<%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-outline-warning btn-sm', style: 'margin-right: 10px' %>
 			<%if current_user != #{@post.user.id}%>
 				<% if user_signed_in? %>
-					<%= link_to "Apporter son aide", participation_path(@post.user.id), class: 'btn btn-outline-primary btn-sm' %>
+					<%= link_to "Apporter son aide", new_post_participation_path(@post), class: 'btn btn-outline-primary btn-sm' %>
 				<% else %>
 					<%= link_to "Apporter son aide", new_user_session_path, class: 'btn btn-outline-primary btn-sm' %>
 				<%end%>
