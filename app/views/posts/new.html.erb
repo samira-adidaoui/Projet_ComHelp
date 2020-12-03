@@ -9,12 +9,38 @@
             <%= form.text_field :title %>
         </p>
         <p>
+            <form action="/posts" methode ="post">
+            <label for="Categories">Choisir une categorie:</label><br>
+            <select id="category" name="category_name">
+                <option value="Bricolage">Bricolage</option>
+                <option value="Jardinage">Jardinage</option>
+                <option value="Soutien scolaire">Soutien scolaire</option>
+                <option value="Garde d'enfants">Garde d'enfants</option>
+                <option value="Informatique/Bureautique">Informatique/Bureautique</option>
+                <option value="Animaux">Animaux</option>
+                <option value="Service à la personne">Service à la personne</option>
+                <option value="Dons de matériel">Dons de matériel</option>
+                <option value="Administratif">Administratif</option>
+            </select>
+            
+        </p>
+        <p>
             <%= form.label :description %> <br>
             <%= form.text_area :description %>
         </p>
         <p>
+        <div class="form-group">
+            <%= form.label :datetime %><br />
+            <%= form.date_field :datetime, autofocus: true, autocomplete: "datetime" %>
+        </div>           
+        </p>
+        <p>
             <%= form.submit "Poster" %>
         </p>
-        <% end %>
+
+    <% end %>
+
+        
+</form>
     </div>
 </div>

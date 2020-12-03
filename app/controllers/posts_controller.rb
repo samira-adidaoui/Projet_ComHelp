@@ -15,9 +15,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
-      redirect_to_posts_path notice: "Post envoyé avec succès!"
+      redirect to posts_path notice: "Annonce créée avec succès!"
     else
       render "new"
     end
@@ -31,7 +32,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if  @post.update_attributes(post_params)
-      redirect_to posts_path, notice => "Votre post a été mis a jour"
+      redirect_to posts_path(@post.id), notice => "Votre post a été mis a jour"
     else
       render "edit"
     end
@@ -54,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :category_name, :date)
   end
 
 end

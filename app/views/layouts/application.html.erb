@@ -14,10 +14,6 @@
       <%= render 'layouts/navbar'%>
       <%= render 'layouts/flash'%>
 
-      <% flash.each do |key, value| %>
-      <p><%= value %></p>
-      <% end %>
-
     <%= yield %>
     <%= javascript_include_tag 'application' %>
 
