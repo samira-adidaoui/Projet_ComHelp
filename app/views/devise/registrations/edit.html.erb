@@ -1,43 +1,61 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
+<div class="row">
+  <div class="col-md-4" style="background-image: url(https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);"></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <br>
+    <br>
+    <h2 style="font-weight: bold; font-size: 3em">Modifier mes infos personnelles</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <hr>
+    <h5 style="font-weight: bold">Tous les champs sont obligatoires sauf ceux concernant la création d'un nouveau mot de passe</h5>
+    <hr>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
-  <% end %>
+    <div class="field">
+      <%= f.label :prenom, "Prénom :" %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+    <div class="field">
+      <%= f.label :nom, "Nom :" %><br />
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :adresse_email, "Adresse e-mail :" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
+
+    <div class="field">
+      <%= f.label :mot_de_passe_actuel, "Tapez ici votre mot de passe actuel :" %> <br />
+      <%= f.password_field :current_password, autocomplete: "mot-de-passe-actuel" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :mot_de_passe, " Tapez votre nouveau mot de passe (minimum 6 caractères):" %><br />
+      <%= f.password_field :password, autocomplete: "nouveau-mot-de-passe" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :confirmation, "Confirmation de votre nouveau mot de passe :" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "nouveau-mot-de-passe" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Valider" %>
+    </div>
+    <% end %>
+    <hr>
+    <br>
+    <h2 style="font-weight: bold;">Supprimer mon compte</h2>
+
+    <p><strong>Attention :</strong> cette action est irréversible.<%= button_to "Je décide de supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete %></p>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
-<% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-
-<%= link_to t('devise.shared.links.back'), :back %>
+</div>
