@@ -34,18 +34,18 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :mot_de_passe, "Tapez votre nouveau mot de passe (minimum 6 caractères) :" %> <br />
+      <%= f.label :mot_de_passe_actuel, "Tapez ici votre mot de passe actuel :" %> <br />
+      <%= f.password_field :current_password, autocomplete: "mot-de-passe-actuel" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :mot_de_passe, " Tapez votre nouveau mot de passe (minimum 6 caractères):" %><br />
       <%= f.password_field :password, autocomplete: "nouveau-mot-de-passe" %>
     </div>
 
     <div class="field">
       <%= f.label :confirmation, "Confirmation de votre nouveau mot de passe :" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "nouveau-mot-de-passe" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :mot_de_passe_actuel, "Tapez ici votre mot de passe actuel :" %><br />
-      <%= f.password_field :current_password, autocomplete: "mot-de-passe-actuel" %>
     </div>
 
     <div class="actions">
