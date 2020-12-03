@@ -4,9 +4,6 @@ class PostsController < ApplicationController
     @category = Category.all
   end
 
-  def new
-  end
-
   def show
     @post = Post.find_by_id(params[:id])
     @participant = Participation.where(:post_id => @post.id)  
@@ -30,30 +27,27 @@ class PostsController < ApplicationController
     else
       render "new"
     end
-  
 
-    puts params[:post][:title]
-    puts params[:post][:description]
-    puts params[:post][:datetime]
-    puts current_user
-    puts current_user.first_name
-    puts Category.find_by(name:params[:category_name])
-    puts Category.find_by(name:params[:category_name]).name
-
-  end
-
-  def edit
-    @post = Post.find(params[:id])
   end
 
   def update
     @post = Post.find(params[:id])
 
-    if  @post.update_attributes(post_params)
+    if City.find_by(city_name:params[:post][:city]) == nil
+      City.create(city_name:params[:post][:city])
+    end
+      new_post_city = City.find_by(city_name:params[:post][:city])
+      if @post.update(title:params[:post][:title], city:new_post_city, description:params[:post][:description], user:current_user, datetime:params[:post][:datetime], category:Category.find_by(name:params[:category_name]))
+
+    #if  @post.update_attributes(post_params)
       redirect_to posts_path(@post.id), notice => "Votre post a été mis a jour"
     else
       render "edit"
     end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def destroy

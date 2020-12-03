@@ -1,16 +1,20 @@
 <div class="form-control-lg text-center w-100">
     <div class="w-100 p-4" style="background-color: #eee;">
-        <h2>Modifier votre anonce</h2>
+        <h2>Modifier votre annonce</h2>
     </div>
 
     <div class="w-100 p-4" style="background-color: #eee;">
-        <%= form_for @post do |f| %>
+        <%= form_for @post, :method => :patch do |f| %>
             <p>
                 <%= f.label :title %><br>
                 <%= f.text_field :title %>
             </p>
             <p>
-                <form action="/posts" methode ="post">
+                <%= f.label :ville %> <br>
+                <%= f.text_field :city %>
+            </p>
+            <p>
+                <form action="/posts" methode ="put">
                 <label for="Categories">Choisir une categorie:</label><br>
                 <select id="category" name="category_name">
                     <option value="Bricolage">Bricolage</option>
@@ -29,7 +33,10 @@
                 <%= f.text_area :description %>
             </p>
             <p>
-                <%= form.submit "Poster" %>
+                <div class="form-group">
+                    <%= f.label :datetime %><br />
+                    <%= f.date_field :datetime, autofocus: true, autocomplete: "datetime" %>
+                </div>           
             </p>
             <p>
                 <%= f.submit "Mettre à jour" %><br>
