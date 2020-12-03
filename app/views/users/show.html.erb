@@ -64,7 +64,7 @@
                 <h2 class="lead-color"><b>Les annonces auxquelles j'ai répondu :</b></h2>
                   <ul>
                     <% @user.answered_posts.each do |post| %>
-                      <li><%= link_to "#{post.title}", post_path(post.id) %>s, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
+                      <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
                     <% end %>
                   </ul>
               <% else %>
@@ -72,7 +72,7 @@
                   <h2 class="lead-color"><b>Les annonces auxquelles <%= @user.first_name %> a répondu :</b></h2>
                   <ul>
                     <% @user.answered_posts.each do |post| %>
-                      <li><%= link_to "#{post.title}", post_path(post.id) %>s, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
+                      <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
                     <% end %>
                   </ul>
                 <% else %>
