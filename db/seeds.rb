@@ -40,13 +40,13 @@ category_array = ["Bricolage",
 
 picture_array = ["https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/Bricolage+1280.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/jardinage+1280.jpg",
-                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/cours+particuliers/cours+particuliers.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/cours+particuliers/soutien+scolaire.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/enfants/les+petits+nouveau+2.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/demenagement/d%C3%A9m%C3%A9nagement.jpg",
-                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/dons/dons+de+materiel.jpeg"
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/dons/dons+de+materiel.jpeg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Service+%C3%A0+la+personne/services-%C3%A0-la-personne.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/animaux/Animaux.jpg",
-                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/informatique_bureautique/informatique_bureautique.jpg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/informatique_bureautique/computer-1245714_640.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/administratif/Administratif.jpg"]
 
 10.times do
@@ -58,7 +58,7 @@ end
     picture_url: picture_array[i])
 end
 
-10.times do
+1.times do
     User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end  
 
