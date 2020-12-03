@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem "simple_calendar", "~> 2.0"
 gem 'aws-sdk-s3', require: false
 #gem 'active_storage'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

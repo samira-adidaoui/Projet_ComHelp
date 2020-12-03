@@ -9,3 +9,5 @@ class Post < ApplicationRecord
     validates :description, presence: true, length: { in: 20..1000}
 
 end
+
+
