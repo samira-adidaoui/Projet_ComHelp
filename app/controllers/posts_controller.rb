@@ -15,13 +15,28 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    
+    if City.find_by(city_name:params[:post][:city]) == nil
+      City.create(city_name:params[:post][:city])
+    end
+      new_post_city = City.find_by(city_name:params[:post][:city])
+      @post = Post.new(title:params[:post][:title], city:new_post_city, description:params[:post][:description], user:current_user, datetime:params[:post][:datetime], category:Category.find_by(name:params[:category_name]))
+
     if @post.save
-      redirect to posts_path notice: "Annonce créée avec succès!"
+      redirect_to posts_path notice: "Annonce créée avec succès!"
     else
       render "new"
     end
+  
+
+    puts params[:post][:title]
+    puts params[:post][:description]
+    puts params[:post][:datetime]
+    puts current_user
+    puts current_user.first_name
+    puts Category.find_by(name:params[:category_name])
+    puts Category.find_by(name:params[:category_name]).name
+
   end
 
   def edit
@@ -55,7 +70,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :category_name, :date)
+    params.require(:post).permit(:title, :description, :category_name, :datetime)
   end
 
 end

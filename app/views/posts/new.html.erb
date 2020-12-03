@@ -5,8 +5,12 @@
     <div class="w-100 p-4 h-75" style="background-color: #eee;">
     <%= form_for @post do |form| %>
         <p>
-            <%= form.label :title %> <br>
+            <%= form.label :titre %> <br>
             <%= form.text_field :title %>
+        </p>
+        <p>
+            <%= form.label :ville %> <br>
+            <%= form.text_field :city %>
         </p>
         <p>
             <form action="/posts" methode ="post">
