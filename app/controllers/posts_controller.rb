@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate, only: [:edit, :update, :destroy]
   def index
     @post = Post.all
     @category = Category.all
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
 
   def owned_post  
     unless current_user == @post.user
-      flash[:alert] = "Vous n'etes pas propriétaire de ce post!"
+      flash[:alert] = "Vous n'êtes pas propriétaire de ce post!"
       redirect_to root_path
       
     end  
@@ -67,6 +68,14 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :description, :category_name, :datetime)
+  end
+
+
+  def authenticate
+    if Post.find(params[:id]) != nil && Post.find(params[:id]).user != current_user
+      flash[:danger] = "Vous n'êtes pas autorisé à effectuer cette action"
+      redirect_to posts_path
+    end
   end
 
 end
