@@ -23,7 +23,7 @@
 						 Paticipant(s):
 						<%@participant.each do |participant|%>
 							<% if user_signed_in? %>
-								<%= link_to participant.user.first_name, user_path(:id => user.id)%> /
+								<%= link_to participant.user.first_name, user_path(:id => participant.user.id)%> /
 							<% else %>
 								<%= link_to participant.user.first_name, new_user_session_path %> /
 							<%end%>
