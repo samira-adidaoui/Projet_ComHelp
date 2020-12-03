@@ -43,7 +43,7 @@ picture_array = ["https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/B
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/cours+particuliers/cours+particuliers.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/enfants/les+petits+nouveau+2.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/demenagement/d%C3%A9m%C3%A9nagement.jpg",
-                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/dons/dons+de+materiel.jpeg",
+                "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/dons/dons+de+materiel.jpeg"
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Service+%C3%A0+la+personne/services-%C3%A0-la-personne.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/animaux/Animaux.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/informatique_bureautique/informatique_bureautique.jpg",
