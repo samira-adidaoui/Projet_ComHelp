@@ -31,12 +31,12 @@ category_array = ["Bricolage",
                 "Jardinage",
                 "Soutien scolaire",
                 "Garde d'enfants",
-                "Dons de matériel", 
                 "Déménagement",
+                "Dons de matériel", 
                 "Service à la personne",
                 "Animaux",
-                "Informatique/Bureautique","
-                Administratif"]
+                "Informatique/Bureautique",
+                "Administratif"]
 
 picture_array = ["https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/Bricolage+1280.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/jardinage+1280.jpg",
