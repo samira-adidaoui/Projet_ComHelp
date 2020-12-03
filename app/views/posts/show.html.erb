@@ -47,16 +47,13 @@
 				</div>
 			</div>
 			<%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-outline-warning btn-sm', style: 'margin-right: 10px' %>
-			<%if current_user != #{@post.user.id}%>
-				<% if user_signed_in? %>
-					<%= link_to "Apporter son aide", new_post_participation_path(@post), class: 'btn btn-outline-primary btn-sm' %>
-				<% else %>
-					<%= link_to "Apporter son aide", new_user_session_path, class: 'btn btn-outline-primary btn-sm' %>
-				<%end%>
+			<% if user_signed_in? %>
+				<%= link_to "Apporter son aide", new_post_participation_path(@post), class: 'btn btn-outline-primary btn-sm' %>
+			<% else %>
+			
+				<%= link_to "Apporter son aide", new_user_session_path, class: 'btn btn-outline-primary btn-sm' %>
 			<%end%>
-			<%if current_user == #{@post.user.id}%>
-				<%= link_to "Mon espace personnel", user_path(:id => current_user.id), class: 'btn btn-outline-danger btn-sm', style: 'margin-right: 10px' %>
-			<%end%>
+			<%= link_to "Annuler mon inscription", post_participation_path(@post), method: :delete, data: { confirm: 'Êtes vous sûrs? ' }, class:'btn btn-danger btn-sm' %>
 
 		</section>
 

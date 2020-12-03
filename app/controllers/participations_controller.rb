@@ -20,6 +20,15 @@ class ParticipationsController < ApplicationController
             redirect_to post_path(@post) 
         end
     end
+
+    def destroy
+        @post = Post.find(params[:post_id])
+        @participation = Participation.find(10)  
+        @participation.destroy
+        redirect_to post_path(@post) 
+
+    end
+
     
 
    
