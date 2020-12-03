@@ -48,13 +48,14 @@
 			</div>
 			<%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-outline-warning btn-sm', style: 'margin-right: 10px' %>
 			<% if user_signed_in? %>
-				<%= link_to "Apporter son aide", new_post_participation_path(@post), class: 'btn btn-outline-primary btn-sm' %>
+				<% if current_user.answered_posts.all.include?(@post) %>
+					<%= link_to "Annuler mon inscription", post_participation_path(@post), method: :delete, data: { confirm: 'Êtes vous sûrs? ' }, class:'btn btn-danger btn-sm' %>			
+				<% else %>
+					<%= link_to "Apporter son aide", new_post_participation_path(@post), class: 'btn btn-outline-primary btn-sm' %>
+				<%end%>
 			<% else %>
-			
 				<%= link_to "Apporter son aide", new_user_session_path, class: 'btn btn-outline-primary btn-sm' %>
 			<%end%>
-			<%= link_to "Annuler mon inscription", post_participation_path(@post), method: :delete, data: { confirm: 'Êtes vous sûrs? ' }, class:'btn btn-danger btn-sm' %>
-
 			<div>
 				<p><%= link_to "Modifier", edit_post_path(@post.id), :class => "text-info pull-right" %></p><br>
             	<p><%= link_to "Supprimer", @post, :confirm => "Ce post sera supprimé définitivement!", :method => :delete, :class => "text-danger pull-right" %></p>

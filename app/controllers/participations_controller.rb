@@ -2,11 +2,11 @@ class ParticipationsController < ApplicationController
     def new
         participation = Participation.new
         @post = Post.find(params[:post_id])
-
     end
 
     def show
         @participation = Participation.find(params[:id])
+        
     end
 
     def create
@@ -23,14 +23,15 @@ class ParticipationsController < ApplicationController
 
     def destroy
         @post = Post.find(params[:post_id])
-        @participation = Participation.find(10)  
+        @participation = Participation.find_by(user_id: current_user.id, post_id: @post)
         @participation.destroy
-        redirect_to post_path(@post) 
 
-    end
-
-    
-
-   
-      
+        if @participation.delete
+            flash[:success] = "Vote participation a bien été supprimé"
+            redirect_to post_path(@post) 
+        else
+            flash[:danger] = "Votre participation n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
+            redirect_to root_path
+        end
+    end      
 end
