@@ -4,13 +4,6 @@
                 <div class="col-md-8 mb-7">
                     <h4 class="text-white"> Rapprochons nous et retrouvons nous !</h4>
                     <h1 class="display-4 font-weight-bold text-white">Comhelp</h1>
-                    <div class="container">
-                    <% if user_signed_in? %>
-                      <%= link_to "Postez une annonce", class: 'btn btn-dark  ml-2 mr-0 text-light'%>
-                    <% else %>
-                      <%= link_to "Inscrit toi !", new_user_session_path, class: 'btn btn-dark  ml-2 mr-0 text-light'%>
-                    <%end%>
-                  </div>
                 </div>
             </div>
         </div>
