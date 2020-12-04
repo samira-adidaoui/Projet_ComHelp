@@ -62,7 +62,7 @@
 								<li><%= link_to "Modifier", edit_post_path(@post.id), :class => "text-info pull-right" %></li>
 								<li><%= link_to "Supprimer", @post, :confirm => "Ce post sera supprimé définitivement!", :method => :delete, :class => "text-danger pull-right" %></li>
 							</lu>
-							<p><%= link_to "Gérer les participations", post_participation_path(@participant), :class => "text-info pull-right" %></p>
+							<p><%= link_to "Gérer les participations", post_participation_path(@post), :class => "text-info pull-right" %></p>
 						</div>
 					<%end%>
 				</div>

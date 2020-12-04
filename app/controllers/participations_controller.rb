@@ -1,6 +1,7 @@
 class ParticipationsController < ApplicationController
 
-    before_action :authenticate, only: [:create, :new]
+    before_action :authenticate, only: [:create, :new, :show]
+    #   before_action :is_owner?, only: [:show]
 
     def new
         participation = Participation.new
@@ -10,6 +11,8 @@ class ParticipationsController < ApplicationController
     def show
         @post = Post.find_by_id(params[:id])
         @participant = Participation.where(:post_id => @post.id)  
+        @participation = Participation.find_by(user_id: current_user.id, post_id: @post)
+
     end
 
     def create
@@ -46,6 +49,14 @@ class ParticipationsController < ApplicationController
             redirect_to posts_path
         end
     end
+    def is_owner?
+        @participation = Participation.find_by(user_id: current_user.id, post_id: @post)
+
+        if current_user.id.to_i != @post.user.id.to_i
+          flash[:danger] = "Vous ne pouvez pas acceder à cette page"
+          redirect_to root_path
+        end
+      end
    
       
 end
