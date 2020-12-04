@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   end
   resources :cgu, only: [:index]
   resources :privacy, only: [:index]
-
 end
