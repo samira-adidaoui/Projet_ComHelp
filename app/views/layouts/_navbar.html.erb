@@ -48,11 +48,8 @@
           </li>
           <% end %>
           
-
-          <%if user_signed_in? %>
           <li class="nav-item dropdown p-2">
             
-
             <%= link_to 'Sélection par catégorie'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
 
             <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
@@ -69,7 +66,6 @@
               <%= link_to "Administratif", category_path(10), :class => "dropdown-item" %>
             </div>
 	   </li>
-          <%end%>
         </ul>
       </div> 
     </div>
