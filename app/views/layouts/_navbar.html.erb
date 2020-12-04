@@ -11,9 +11,8 @@
           </li>
           <%if user_signed_in? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Mon Compte
-            </a>
+          <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
+
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               
               <%= link_to "Mon Profil", user_path(:id => current_user.id), :class => "dropdown-item" %>
@@ -22,9 +21,8 @@
           </li>
           <%else %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mon Compte
-              </a>
+              <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
                 <%= link_to "Se connecter", new_user_session_path, :class => "dropdown-item" %>
@@ -49,7 +47,44 @@
             <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>
           </li>
           <% end %>
+          
+
+          <%if user_signed_in? %>
+          <li class="nav-item dropdown p-2">
+            
+
+            <%= link_to 'Sélection par catégorie'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
+
+            <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
+              
+              <%= link_to "Bricolage", category_path(1), :class => "dropdown-item" %>
+              <%= link_to "Jardinage", category_path(2), :class => "dropdown-item" %>
+              <%= link_to "Soutien scolaire", category_path(3), :class => "dropdown-item" %>
+              <%= link_to "Garde d'enfants", category_path(4), :class => "dropdown-item" %>
+              <%= link_to "Déménagement", category_path(5), :class => "dropdown-item" %>
+              <%= link_to "Dons de matériel", category_path(6), :class => "dropdown-item" %>
+              <%= link_to "Service à la personne", category_path(7), :class => "dropdown-item" %>
+              <%= link_to "Animaux", category_path(8), :class => "dropdown-item" %>
+              <%= link_to "Informatique/Bureautique", category_path(9), :class => "dropdown-item" %>
+              <%= link_to "Administratif", category_path(10), :class => "dropdown-item" %>
+            </div>
+          </li>
+          <%else %>
+            <li class="nav-item dropdown">
+              
+              <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                <%= link_to "Se connecter", new_user_session_path, :class => "dropdown-item" %>
+                <%= link_to "Nouveau client?",  new_user_registration_path, :class => "dropdown-item"%>
+              </div>
+            </li>
+          <%end%>
         </ul>
       </div> 
     </div>
   </nav>
+
+
+  
