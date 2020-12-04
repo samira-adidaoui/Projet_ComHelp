@@ -4,13 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Salut  admin et bienvenue chez nous !</h1>
+    <h1>Salut l'admin !</h1>
     <p>
-      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant :.
+      Une nouvelle annonce intitulée <%= @post.title %> vient d'être publiée par l'utilisateur <%= @post.user.first_name %> <%= @post.user.last_name %>.
     </p>
     <p>
-      Pour accéder à ton espace client, connecte-toi via :.
+      On t'invite à te rendre sur ton dashboard admin pour en prendre connaissance et l'approuver ou la rejeter.
     </p>
-    <p> À très vite sur monsite.fr !
+	<p>A plus !</p>
   </body>
 </html>
