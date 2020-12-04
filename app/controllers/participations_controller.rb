@@ -1,6 +1,6 @@
 class ParticipationsController < ApplicationController
 
-    before_action :authenticate, only: [:create]
+    before_action :authenticate, only: [:create, :new]
 
     def new
         participation = Participation.new
@@ -8,8 +8,8 @@ class ParticipationsController < ApplicationController
     end
 
     def show
-        @participation = Participation.find(params[:id])
-        
+        @post = Post.find_by_id(params[:id])
+        @participant = Participation.where(:post_id => @post.id)  
     end
 
     def create
