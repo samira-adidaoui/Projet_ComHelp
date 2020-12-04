@@ -58,15 +58,15 @@ end
     picture_url: picture_array[i])
 end
 
-1.times do
+20.times do
     User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end  
 
-5.times do
+20.times do
     Post.create(datetime: rand(t1..t2), title: Faker::Lorem.sentence(word_count: 6), user: User.all.sample, description: Faker::Lorem.sentence(word_count: 30), city: City.all.sample, category: Category.all.sample)
   end
 
-10.times do
+20.times do
     Participation.create(user: User.all.sample, post: Post.all.sample)
 end
 
