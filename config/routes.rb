@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :index, :edit, :update, :destroy]
     root 'landing#index'
   end
+  resources :cgu, only: [:index]
+  resources :privacy, only: [:index]
 
 end
