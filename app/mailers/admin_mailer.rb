@@ -1,13 +1,10 @@
 class AdminMailer < ApplicationMailer
+	  default from: 'no-reply@monsite.fr'
 
-  default from: 'marinekouadio@gmail.com'
- 
-  def admin_email(admin)
-    @admin = admin
-    @url  = 'https://projet-comhelp-develop.herokuapp.com/' 
+	def new_ad_notification(post)
 
-    # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-    mail(to: @user.email, subject: 'Bienvenue chez nous !') 
-  end
-  
+		@post=post
+		mail(to: 'admin_comhelp@yopmail.com', subject: 'Une nouvelle annonce a été postée')
+	end
+
 end
