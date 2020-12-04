@@ -68,18 +68,7 @@
               <%= link_to "Informatique/Bureautique", category_path(9), :class => "dropdown-item" %>
               <%= link_to "Administratif", category_path(10), :class => "dropdown-item" %>
             </div>
-          </li>
-          <%else %>
-            <li class="nav-item dropdown">
-              
-              <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                <%= link_to "Se connecter", new_user_session_path, :class => "dropdown-item" %>
-                <%= link_to "Nouveau client?",  new_user_registration_path, :class => "dropdown-item"%>
-              </div>
-            </li>
+	   </li>
           <%end%>
         </ul>
       </div> 
