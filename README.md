@@ -6,4 +6,4 @@ All you need to post an ad is to sign up. From your personal account page you ca
 As soon as an ad is submitted and validated (we can’t just let anyone post anything), it shows on the app’s landing page. Any registered user is then allowed to click a button to answer an ad. The original poster of the ad still has a right to reject your proposal for whatever reason he or she deems right.
 Many more features are in store and should be implemented soon, so stay tuned !
 
-ComHelp was built with Ruby 2.7.1 and Ruby on Rails 5.3.2.
+ComHelp was built with Ruby 2.7.1 and Ruby on Rails 5.2.3.
