@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   end
   resources :cgu, only: [:index]
   resources :privacy, only: [:index]
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
 end
