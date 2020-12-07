@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'conversations/index'
   devise_for :users
   root 'posts#index'
   resources :posts do
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :team, only: [:index] 
   resources :users
-
 	  scope 'admin', module: 'admin', as: 'admin' do
     resources :landing, only: [:index]
     resources :users, only: [:index, :edit, :update, :destroy]
