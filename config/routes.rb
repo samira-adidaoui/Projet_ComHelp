@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'messages/index'
   get 'conversations/index'
   devise_for :users
   root 'posts#index'
