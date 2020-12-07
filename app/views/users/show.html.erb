@@ -32,7 +32,7 @@
               </ul>
               <hr>
               <h6 class="profile-pad">Vous souhaitez envoyer un message privé à <%= @user.first_name %> ?</h6>
-              <%= link_to "C'est par ici !", edit_user_path(@user.id), class: 'btn btn-primary profile-btn' %>
+              <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, receiver_id: @user.id), class: 'btn btn-primary profile-btn' %>
             </div>
           </div>
       <% end %>

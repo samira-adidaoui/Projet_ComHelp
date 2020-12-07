@@ -1,19 +1,21 @@
-<p>Find me in app/views/messages/index.html.erb</p>
-<ul>
-  <% @messages.each do |message| %>
+<div id="messages">
+  <% @conversation.messages.each do |message| %>
     <% if message.body %>
-      <li>
-        <h4><%= message.user.username %></h4>
-        <p><%= message.body %></p>
-      </li>
+      <div class="media">
+        <div class="media-body">
+          <h5 class="media-heading"><%= message.user.first_name %> <small class="text-muted"></h5>
+          <p><%= message.body %></p>
+        </div>
+      </div>
     <% end %>
   <% end %>
-</ul>
+</div>
 
 <%= form_for [@conversation, @message] do |f| %>
-  <div class="field">
-    <%= f.text_area :body, placeholder: "Your message" %>
+  <div class="form-group">
+    <%= f.text_area :body, autofocus: true, placeholder: "Your message", class: "form-control", rows: 5, col: 5%>
   </div>
 
-  <%= f.submit "Send" %>
+  <%= f.submit "Envoyer un message", class: "btn btn-primary pull-right" %>
 <% end %>
+<p><%= link_to "Revenir à sur la messagerie", conversations_index_path, :class => "btn btn-warning pull-right"  %></p>
