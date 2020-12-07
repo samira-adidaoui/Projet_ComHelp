@@ -69,7 +69,7 @@ gem 'bootstrap'
 gem 'letter_opener'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
-gem 'mailjet'
+gem "algoliasearch-rails"
 
 
 

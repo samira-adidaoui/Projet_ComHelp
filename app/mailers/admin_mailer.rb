@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-	  default from: 'brice.arby@gmail.com'
+	  default from: 'nesserine.adidaoui@gmail.com'
 
 	def new_ad_notification(post)
 
