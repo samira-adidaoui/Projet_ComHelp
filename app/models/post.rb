@@ -1,4 +1,4 @@
-requite 'twitter'
+require 'twitter'
 
 class Post < ApplicationRecord
     after_create :email_to_admin, :automatic_tweet
