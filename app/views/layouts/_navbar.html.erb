@@ -3,9 +3,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="d-flex justify-content-start">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-           <i class="fas fa-hand-holding-heart fa-4x"></i>         
+          <li class="col-sm-2">
+            <img src="https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg" alt="logo" class="img-responsive">
           </li>
+          
           <li class="nav-item active">
             <%= link_to "Accueil", root_path, :class => "nav-link" %>
           </li>
@@ -34,9 +35,7 @@
       </div>
       <div class="d-flex justify-content-end">
         <ul class="navbar-nav mr-auto" >
-          <li class="nav-item p-2">
-            <%= link_to "A Propos", team_index_path, :class => "nav-link" %>
-          </li>
+          
           <% if user_signed_in? %>
           <li class="nav-item p-2">
             <%= link_to "Créer une annonce", new_post_path, :class => "nav-link" %>
@@ -65,7 +64,10 @@
               <%= link_to "Informatique/Bureautique", category_path(9), :class => "dropdown-item" %>
               <%= link_to "Administratif", category_path(10), :class => "dropdown-item" %>
             </div>
-	   </li>
+	        </li>
+          <li class="nav-item p-2">
+            <%= link_to "A Propos", team_index_path, :class => "nav-link" %>
+          </li>
         </ul>
       </div> 
     </div>

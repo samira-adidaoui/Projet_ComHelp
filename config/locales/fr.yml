@@ -1,13 +1,2 @@
 fr:
-  devise:
-    registrations:
-      new:
-        sign_up: "S'inscrire"
-    sessions:
-      new:
-        sign_in: "S'enregistrer"
-    passwords:
-        new:
-          send_me_reset_password_instructions: "Réinitialisation du mot de passe"
-        
-  Bonjour: "Bonjour Monde"
+  
