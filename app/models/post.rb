@@ -1,7 +1,8 @@
 require 'twitter'
 
 class Post < ApplicationRecord
-    after_create :email_to_admin, :automatic_tweet
+    after_create :email_to_admin
+		after_commit :automatic_tweet
 
     belongs_to :user
     belongs_to :category
@@ -18,15 +19,17 @@ class Post < ApplicationRecord
     end
 
 	def automatic_tweet
-    client = Twitter::REST::Client.new do |config|
-    config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
-    config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
-    config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-    config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
-  end
-    client.update("Annonce postée à #{self.city.city_name} : #{self.description}")
+		if self.is_validated == true
+    	client = Twitter::REST::Client.new do |config|
+    	config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+    	config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+    	config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+    	config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
+  	end
+    	client.update("Annonce postée à #{self.city.city_name} : #{self.description}")
+		end
 	end
-    
+ 
 =begin
     include AlgoliaSearch
 
