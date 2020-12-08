@@ -36,7 +36,26 @@
                   <li><h6><b>Prénom</b> : <%= @user.first_name %></h6></li>
                   <li><h6><b>Nom</b> : <%= @user.last_name %></h6></li>
                   <li><h6><b>Adresse e-mail</b> : <%= @user.email %></h6></li>
-                  <li><h6><b>Ratio d'avis favorables / défavorables</b> :  
+
+                  <% if user_signed_in? && user_is_allowed_to_vote? && ! current_user.find_voted_items.include?(@user) %>
+                  <li><h6><b>Ratio d'avis favorables / défavorables</b> :
+                          <%= link_to like_user_path(@user), method: :put do %>  
+                            <button type="button" class="btn btn-success" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+                            <span class="badge"><%= @user.get_upvotes.size %></span>
+                            </button>
+                            <% end %>
+                          <%= link_to unlike_user_path(@user), method: :put do %>
+                            <button type="button" class="btn btn-danger" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+                            <span class="badge"><%= @user.get_downvotes.size %></span>
+                            </button>
+                            <% end %>
+                        <h5><b>Veuillez noter cet utilisateur en cliquant sur l'une des deux icônes.</b></h5>
+                   </h6></li>
+
+                   <% else %>
+                   <li><h6><b>Ratio d'avis favorables / défavorables</b> :  
                             <button type="button" class="btn btn-success" aria-label="Left Align">
                             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
                             <span class="badge"><%= @user.get_upvotes.size %></span>
@@ -47,6 +66,7 @@
                             <span class="badge"><%= @user.get_downvotes.size %></span>
                             </button>
                    </h6></li>
+                   <% end %>
               </ul>
               <hr>
               <h6 class="profile-pad">Vous souhaitez envoyer un message privé à <%= @user.first_name %> ?</h6>
