@@ -14,16 +14,16 @@
 					            <li><h6>Mon <b>e-mail</b> : <%= @user.email %></h6></li>
                       <li><h6>Ma <b>note actuelle</b> : <%= @user.notation %></h6></li>
 
-                      <%= link_to like_user_path(user), class:"like", method::put do %>
+                      <%= link_to like_user_path(@user), class:"like", method: :put do %>
                         <button type="button" class="btn btn-info" aria-label="Left Align">
                         <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-                        <span class="badge"><%=user.get_upvotes.size %></span>
+                        <span class="badge"><%= @user.get_upvotes.size %></span>
                         </button>
                       <% end %>
-                      <%= link_to unlike_user_path(user), class:"like", method::put do %>
+                      <%= link_to unlike_user_path(@user), class:"like", method: :put do %>
                         <button type="button" class="btn btn-info" aria-label="Left Align">
                         <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
-                        <span class="badge"><%=user.get_downvotes.size %></span>
+                        <span class="badge"><%= @user.get_downvotes.size %></span>
                         </button>
                       <% end %>
 
