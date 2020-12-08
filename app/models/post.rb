@@ -1,11 +1,11 @@
 require 'twitter'
 
 class Post < ApplicationRecord
-    after_create :email_to_admin, :automatic_tweet
+#    after_create :email_to_admin, :automatic_tweet
 
-    belongs_to :user
-    belongs_to :category
-    belongs_to :city
+#    belongs_to :user
+#    belongs_to :category
+#    belongs_to :city
     has_many :participations
     has_many :users, through: :participations
     
