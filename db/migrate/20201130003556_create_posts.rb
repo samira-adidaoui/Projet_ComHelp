@@ -10,7 +10,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.belongs_to :city
       t.belongs_to :user
       t.belongs_to :category
-      t.boolean :is_validates
+      t.boolean :is_validated
 
 
       t.timestamps
