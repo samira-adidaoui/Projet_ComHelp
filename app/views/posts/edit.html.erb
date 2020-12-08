@@ -11,7 +11,7 @@
             </p>
             <p>
                 <%= f.label :ville %> <br>
-                <%= f.text_field :city, value: Post.find(params[:id]).city.city_name %>
+                <%= f.text_field :city, value: @post.city.city_name %>
             </p>
             <p>
                 <form action="/posts" methode ="put">
