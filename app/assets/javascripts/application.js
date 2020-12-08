@@ -39,3 +39,4 @@
 //= require swiper.min.js
 //= require wavify.js
 //= require wow.min.js
+//= require instantsearch.js

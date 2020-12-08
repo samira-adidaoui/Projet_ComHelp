@@ -1,5 +1,4 @@
-=begin
+
 AlgoliaSearch.configuration = {
-   application_id: 'YourApplicationID', 
-   api_key: 'YourAPIKey' }
-=end
+   application_id: ENV['ALGOLIASEARCH_APPLICATION_ID'], 
+   api_key: ENV['ALGOLIASEARCH_API_KEY_SEARCH'] }

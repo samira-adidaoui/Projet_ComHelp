@@ -51,8 +51,130 @@
 			</div>
 		</div>
 </section>
+<!-- Algolia Search -->
+<div class="ais-InstantSearch">
+  <h3>Recherche multicritère</h3>
+  <!--Searchbox-->
+    <div class="right-panel">
+      <div id="searchbox">
+      <div class="ais-SearchBox">
+      <form class="ais-SearchBox-form" novalidate>
+        <input class="ais-SearchBox-input" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Rechercher une annonce" spellcheck="false" maxlength="512" type="search" value="" />
+        <button class="ais-SearchBox-submit" type="submit" title="Submit the search query.">
+          <svg class="ais-SearchBox-submitIcon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+            ...
+          </svg>
+        </button>
+        <button class="ais-SearchBox-reset" type="reset" title="Clear the search query." hidden>
+          <svg class="ais-SearchBox-resetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="10" height="10">
+            ...
+          </svg>
+        </button>
+        <span class="ais-SearchBox-loadingIndicator" hidden>
+          <svg width="16" height="16" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#444" class="ais-SearchBox-loadingIcon">
+            ...
+          </svg>
+        </span>
+      </form>
+  </div>
+  <!-- Fin Searchbox-->
+  <!--Date Search -->
+ <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-7 aisdemo--left-column">
+          <div class="aisdemo-filters">
+            <div class="row aisdemo-filter">
+              <div class="col-sm-2 aisdemo-filter-title">Dates</div>
+                <div class="col-sm-3">
+                  <input class="date form-control" value="10/30/3015" disabled />
+                </div>
+                <div class="col-sm-3">
+                  <input class="date form-control" value="10/30/3015" disabled />
+                </div>
+              <div class="col-sm-3"><div id="guests"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!--Fin Date Search-->  
+
+  <!--RefinementList-List-->
+  <ul class="ais-RefinementList-List">
+    <li class="ais-RefinementList-item">
+      <div>
+        <%@post.each do |post|%>
+          <label class="ais-RefinementList-label">
+            <p class="card-text"><%= post.category.name %></p>
+            <input type="checkbox" class="ais-RefinementList-checkbox" value=<%= post.category.name %>>
+            <span class="ais-RefinementList-labelText">Bricoalge</span>
+          </label>
+        <%end%>
+      </div>
+      
+    </li>
+  
+  </ul>
+  <!--Fin RefinementList-List-->
 
 
+  <!-- Hit Search --> 
+
+    <div id="hits"></div>
+      <div class="ais-Hits">
+        <ol class="ais-Hits-list">
+          <li class="ais-Hits-item">
+            <%@post.each do |post|%>
+              <div class="card mx-auto my-4 shadow" style="width: 25rem;">
+                <div class="album py-5 bg-light">
+                  <div class="container">
+                    <div class="card mb-4 shadow-sm">
+                      <img class="card-img" src="<%=post.category.picture_url%>" alt="Card image cap">
+                      <div class="card-body">
+                          <span class="text-primary"><p class="card-text">Titre :<%= post.title %></p></span>
+                          <p class="card-text">Ville :<%= post.city.city_name %></p>
+                          <p class="card-text">Categorie :<%= post.category.name %></p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                            <% if user_signed_in? %>
+                              <%= link_to "Participer", new_post_participation_path(post),  :class => "btn btn-primary" %>
+                            <% else %>
+                              <%= link_to "Participer", new_user_session_path,  :class => "btn btn-primary" %>
+                            <%end%>
+                              <%= link_to "voir plus", post_path(post.id),  :class => "btn btn-outline-primary" %>
+                            </div>
+                          </div>
+                      </div>    
+                    </div>
+                  </div>
+                </div>      
+              </div>
+            <%end%>
+          </li>
+        </ol>
+      </div>
+           
+      <div id="pagination"></div>
+      
+    </div>
+<!-- Fin Hit Search --> 
+<!-- Go Search -->
+<div class="ais-GeoSearch">
+  <div class="ais-GeoSearch-map">
+    <!-- Map element here -->
+  </div>
+  <div class="ais-GeoSearch-control">
+    <label class="ais-GeoSearch-label">
+      <input class="ais-GeoSearch-input" type="checkbox">
+      Search as I move the map
+    </label>
+  </div>
+  <button class="ais-GeoSearch-reset">
+    Clear the map refinement
+  </button>
+</div>
+<!-- Fin Algolia Search -->
 
 
 <h1 class="display-4 text-center">
@@ -71,6 +193,7 @@
       </div>
   <%end%>
 </div>
+
 
 
 <div class="bg-grad border-radius-3 py-5 all-text-white">
