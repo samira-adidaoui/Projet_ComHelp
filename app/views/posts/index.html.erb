@@ -79,7 +79,7 @@
   </div>
   <!-- Fin Searchbox-->
   <!--Date Search -->
- <div class="container-fluid">
+  <div class="container-fluid">
       <div class="row">
         <div class="col-sm-7 aisdemo--left-column">
           <div class="aisdemo-filters">
@@ -104,11 +104,10 @@
   <ul class="ais-RefinementList-List">
     <li class="ais-RefinementList-item">
       <div>
-        <%@post.each do |post|%>
+        <%@category.each do |category|%>
           <label class="ais-RefinementList-label">
-            <p class="card-text"><%= post.category.name %></p>
-            <input type="checkbox" class="ais-RefinementList-checkbox" value=<%= post.category.name %>>
-            <span class="ais-RefinementList-labelText">Bricoalge</span>
+            <input type="checkbox" class="ais-RefinementList-checkbox">
+            <span class="ais-RefinementList-labelText"><%= category.name %></span>
           </label>
         <%end%>
       </div>
@@ -155,7 +154,9 @@
         </ol>
       </div>
            
-      <div id="pagination"></div>
+      <div id="pagination">
+      
+      </div>
       
     </div>
 <!-- Fin Hit Search --> 

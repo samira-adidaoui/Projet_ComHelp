@@ -1,7 +1,7 @@
 var search = instantsearch({
   // Replace with your own values
-  appId: "1JJ5DY0CLA",
-  apiKey: 'e24882443747d61c496efc4e17288a36', // search only API key, no ADMIN key
+  appId: "",
+  apiKey: '', // search only API key, no ADMIN key
   indexName: 'Posts',
   urlSync: true
 });
@@ -14,6 +14,15 @@ search.addWidget(
     poweredBy: true
   })
 );
+
+instantsearch.widgets.refinementList({
+  container: '#room_types',
+  attribute: 'room_type',
+  sortBy: ['name:asc'],
+  cssClasses: {
+    item: ['col-sm-3'],
+  },
+}),
 
 search.addWidget(
   instantsearch.widgets.hits({
@@ -31,6 +40,9 @@ instantsearch.widgets.geoSearch({
   googleReference: window.google,
 });
 
+instantsearch.widgets.pagination({
+  container: document.querySelector('#pagination'),
+});
 
 
 search.start();
