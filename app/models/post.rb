@@ -15,8 +15,12 @@ class Post < ApplicationRecord
 	AdminMailer.new_ad_notification(self).deliver_now
     end
 
-    include AlgoliaSearchable
-    
+    include AlgoliaSearch
+        
+    algoliasearch per_environment: true do
+        attribute :category, :city
+      end
+    Post.reindex
 end
 
 

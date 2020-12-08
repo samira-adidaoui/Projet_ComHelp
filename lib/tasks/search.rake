@@ -1,3 +1,4 @@
+=begin
 namespace :search do
   include AlgoliaSearch
 
@@ -32,3 +33,4 @@ namespace :search do
     remove_one_from_search_index(args.model.classify.constantize, args.id)
   end
 end
+=end

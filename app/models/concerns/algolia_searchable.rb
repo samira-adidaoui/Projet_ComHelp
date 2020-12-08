@@ -1,3 +1,4 @@
+=begin
 module AlgoliaSearchable
   include AlgoliaSearch
   extend ActiveSupport::Concern
@@ -46,3 +47,4 @@ module AlgoliaSearchable
     category && city && id ? true : false
   end
 end
+=end
