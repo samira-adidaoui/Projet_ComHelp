@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   end
   resources :categories
   resources :team, only: [:index] 
-  resources :users
+  resources :users do
+		member do
+			put "like" => "users#upvote"
+			put "unlike" => "users#downvote"
+		end
+	end
 
 	  scope 'admin', module: 'admin', as: 'admin' do
     resources :landing, only: [:index]

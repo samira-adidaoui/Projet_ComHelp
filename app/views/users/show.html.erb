@@ -36,6 +36,16 @@
             </div>
           </div>
       <% end %>
+			<%= link_to like_user_path(@user), method: :put do %>
+   <div class="engagement">
+     <p><%= @user.get_upvotes.size %> </p>
+   </div>
+<%= link_to unlike_user_path(@user), method: :put do %>
+   <div class="engagement">
+     <p><%= @user.get_downvotes.size %> </p>
+   </div>
+<% end %>
+<% end %>
         <br>
         <hr>
         <br>

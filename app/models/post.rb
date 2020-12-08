@@ -9,7 +9,6 @@ class Post < ApplicationRecord
     has_many :participations
     has_many :users, through: :participations
     
-    
     validates :title, presence: true, length: { in: 5..140 }
     validates :description, presence: true, length: { in: 20..1000}
 
