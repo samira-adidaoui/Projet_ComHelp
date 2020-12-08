@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:upvote, :downvote] 
+
+  helper_method :user_is_allowed_to_vote?
+  
   def show
     @user = User.find(params[:id])
   end
@@ -15,5 +17,11 @@ class UsersController < ApplicationController
     @user.downvote_from current_user
     redirect_to user_path(@user.id)
   end
+
+  private
+
+	def user_is_allowed_to_vote?
+		current_user.answered_posts.where(user:@user).present? || @user.answered_posts.where(user:current_user).present?
+	end
 
 end

@@ -4,7 +4,8 @@ class Post < ApplicationRecord
     belongs_to :user
     belongs_to :category
     belongs_to :city
-    has_many :users, through: :participation
+    has_many :participations
+    has_many :users, through: :participations
     
     
     validates :title, presence: true, length: { in: 5..140 }

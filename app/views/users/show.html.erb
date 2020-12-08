@@ -9,28 +9,52 @@
      			     <h4><b>Mes données personnelles :</b></h4>
      			     <hr>
 				          <ul class="list">
-  					          <li><h6>Mon <b>prénom</b> : <%= @user.first_name %></h6></li>
-    				          <li><h6>Mon <b>nom</b> : <%= @user.last_name %></h6></li>
-					            <li><h6>Mon <b>e-mail</b> : <%= @user.email %></h6></li>
-                      <li><h6>Ma <b>note actuelle</b> : <%= @user.notation %></h6></li>
-
+  					          <li class="text-dark mt-3">Mon <b>prénom</b> : <%= @user.first_name %></li>
+    				          <li class="text-dark mt-3">Mon <b>nom</b> : <%= @user.last_name %></li>
+					            <li class="text-dark mt-3">Mon <b>e-mail</b> : <%= @user.email %></li>
+                      <li class="text-dark mt-3 mb-3">Ma <b>note actuelle : Ratio d'avis favorables / Ratio d'avis défavorables</b> : <%= @user.notation %></li>
+                    <% if user_signed_in? && user_is_allowed_to_vote? && ! current_user.find_voted_items.include?(@user) %>
                       <%= link_to like_user_path(@user), method: :put do %>
-                        <div class="engagement">
-                          <p><%= @user.get_upvotes.size %> </p>
-                        </div><% end %>
+                        <span>
+                          <button type="button" class="like btn btn-success">
+                            <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                            <%= @user.get_upvotes.size %>
+                          </button>
+                        </span>
+                      <% end %>
                      <%= link_to unlike_user_path(@user), method: :put do %>
-                        <div class="engagement">
-                          <p><%= @user.get_downvotes.size %> </p>
-                        </div>
+                        <span>
+                          <button type="button" class="dislike btn btn-danger">
+                            <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                            <%= @user.get_downvotes.size %>
+                          </button>
+                        </span>
                      <% end %>
+                    </li></h6>
+                    
+                    <% else %>
+                      <span>
+                        <button type="button" class="like btn btn-success">
+                          <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                          <%= @user.get_upvotes.size %>
+                        </button>
+                      </span>
+                      <span>
+                        <button type="button" class="dislike btn btn-danger">
+                          <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                          <%= @user.get_downvotes.size %>
+                        </button>
+                      </span>
+                    <% end %>
+                  </ul>
+                  <h6><small>*Veuillez noter cet utilisateur en cliquant sur l'une des deux icônes.</small></h6>
 
-				          </ul>
 	    		         <hr>
-	   			         <h6 class="profile-pad">Je souhaite modifier mon données persos ou mon mot de passe ?</h6>
+	   			         <h6 class="profile-pad">Je souhaite modifier mes données personnelles ou mon mot de passe ?</h6>
                    <%= link_to "C'est par ici !", edit_user_registration_path(@user.id), class: 'btn btn-primary profile-btn' %>
   			     </div>
-          </div>
-        <% else %>
+            </div>
+          <% else %>
           <div class="card border">
             <div class="card-body">
               <h4><b>Données personnelles de <%= @user.first_name %> :</b></h4>
