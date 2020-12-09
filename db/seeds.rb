@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
+=begin
 User.destroy_all
 User.reset_pk_sequence
 
@@ -22,7 +22,7 @@ Post.reset_pk_sequence
 
 Participation.destroy_all
 Participation.reset_pk_sequence
-
+=end
 
 t1 = Time.parse("2020-11-01 14:40:34")
 t2 = Time.parse("2022-01-01 00:00:00")
@@ -49,7 +49,7 @@ picture_array = ["https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/B
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/informatique_bureautique/computer-1245714_640.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/administratif/Administratif.jpg"]
 
-5.times do
+2.times do
     City.create(city_name: Faker::Address.city)
 end
 
@@ -58,15 +58,15 @@ end
     picture_url: picture_array[i])
 end
 
-5.times do
+2.times do
     User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end  
 
-5.times do
+2.times do
     Post.create(datetime: rand(t1..t2), title: Faker::Lorem.sentence(word_count: 6), user: User.all.sample, description: Faker::Lorem.sentence(word_count: 30), city: City.all.sample, category: Category.all.sample)
   end
 
-10.times do
+2.times do
     Participation.create(user: User.all.sample, post: Post.all.sample)
 end
 
