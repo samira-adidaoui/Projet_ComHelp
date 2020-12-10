@@ -24,7 +24,7 @@
 
                       <span>
                         <button type="button" class="like btn btn-danger">
-                          <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                          <i class="far fa-thumbs-down" aria-hidden="true"></i>
                           <%= @user.get_downvotes.size %>
                         </button>
                       </span>
@@ -45,7 +45,7 @@
                   <li><h6><b>Nom</b> : <%= @user.last_name %></h6></li>
                   <li><h6><b>Adresse e-mail</b> : <%= @user.email %></h6></li>
                   <% if user_signed_in? && user_is_allowed_to_vote? && ! current_user.find_voted_items.include?(@user) %>
-                      <%= link_to like_user_path(@user), method: :put, remote: true do %>
+                      <%= link_to like_user_path(@user), method: :put do %>
                         <span>
                           <button type="button" class="like btn btn-success">
                             <i class="far fa-thumbs-up" aria-hidden="true"></i>
@@ -53,7 +53,7 @@
                           </button>
                         </span>
                       <% end %>
-                     <%= link_to unlike_user_path(@user), method: :put, remote: true do %>
+                     <%= link_to unlike_user_path(@user), method: :put do %>
                         <span>
                           <button type="button" class="dislike btn btn-danger">
                             <i class="far fa-thumbs-down" aria-hidden="true"></i>
