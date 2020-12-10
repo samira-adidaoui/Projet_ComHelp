@@ -52,8 +52,8 @@
 		</div>
 </section>
 <!--Searchbox-->
-    <div class="right-panel">
-      <div id="searchbox">
+  <div class="right-panel mt-3 ml-3">
+    <div id="searchbox">
       <div class="ais-SearchBox">
       <form class="ais-SearchBox-form" novalidate>
         <input class="ais-SearchBox-input" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Rechercher une annonce" spellcheck="false" maxlength="512" type="search" value="" />
@@ -73,12 +73,18 @@
           </svg>
         </span>
       </form>
+    </div>
   </div>
   <!-- Fin Searchbox-->
+
+  <!-- Clear_refinements-->
+  <div id="clear-refinements"></div>
+  <!-- fin Clear_refinements-->
+
 <!--RefinementList-List-->
-  <ul class="ais-RefinementList-List">
+  <ul class="ais-RefinementList-List list-unstyled">
     <li class="ais-RefinementList-item">
-      <div id="refinement-list">
+      <div id="category-list">
         <%@category.each do |category|%>
           <label class="ais-RefinementList-label">
             <input type="checkbox" class="ais-RefinementList-checkbox">
@@ -88,9 +94,7 @@
       </div>
     </li>
   </ul>
-  <!--Fin RefinementList-List-->
-
-
+<!--Fin RefinementList-List-->
 
 <h1 class="display-4 text-center">
 <span class="text-primary">Nos catégories</span>
@@ -99,7 +103,7 @@
 <div class="row">
   <%@category.each do |category|%>
       <div class="card mx-auto my-4 shadow" style="width: 20rem;">
-					<div class="portfolio-card-body">
+					<div class="portfolio-card-body" id="category-list">
             <div class="portfolio-card-header">
                 <%= link_to(image_tag(category.picture_url), category_path(category.id) )%>
             </div> 
