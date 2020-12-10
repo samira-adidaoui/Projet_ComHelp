@@ -14,12 +14,20 @@ class UsersController < ApplicationController
   def upvote
     @user = User.find(params[:id])
     @user.upvote_from current_user
+		respond_to do |format|
+       format.html { redirect_to user_path(@user.id) }
+       format.js { }
+	      end
     redirect_to user_path(@user.id)
   end
 
   def downvote
     @user = User.find(params[:id])
     @user.downvote_from current_user
+  	    respond_to do |format|
+       format.html { redirect_to user_path(@user.id) }
+       format.js { }
+        end
     redirect_to user_path(@user.id)
   end
 
