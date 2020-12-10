@@ -15,17 +15,7 @@ class Post < ApplicationRecord
 	AdminMailer.new_ad_notification(self).deliver_now
     end
     
-=begin
-    include AlgoliaSearch
 
-    algoliasearch do
-        attributes :user, :category, :city
-    end
-
-    algoliasearch do
-        tags ["user", "category", "city"]
-      end
-=end
 end
 
 
