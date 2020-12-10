@@ -44,7 +44,7 @@
                   <li><h6><b>Prénom</b> : <%= @user.first_name %></h6></li>
                   <li><h6><b>Nom</b> : <%= @user.last_name %></h6></li>
                   <li><h6><b>Adresse e-mail</b> : <%= @user.email %></h6></li>
-                  <% if user_signed_in? && user_is_allowed_to_vote? && ! current_user.find_voted_items.include?(@user) %>
+                  <% if user_signed_in? %>
                       <%= link_to like_user_path(@user), method: :put do %>
                         <span>
                           <button type="button" class="like btn btn-success">
