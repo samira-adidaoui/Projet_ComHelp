@@ -9,6 +9,12 @@
 require 'faker'
 Faker::Config.locale = :fr
 
+Message.destroy_all
+Message.reset_pk_sequence
+
+Conversation.destroy_all
+Conversation.reset_pk_sequence
+
 User.destroy_all
 User.reset_pk_sequence
 
