@@ -13,9 +13,9 @@
 
 <%= form_for [@conversation, @message] do |f| %>
   <div class="form-group">
-    <%= f.text_area :body, autofocus: true, placeholder: "Your message", class: "form-control", rows: 5, col: 5%>
+    <%= f.text_area :body, autofocus: true, placeholder: "Your message", class: "form-control", rows: 5 %>
   </div>
 
-  <%= f.submit "Envoyer un message", class: "btn btn-primary pull-right" %>
+  <%= f.submit "Envoyer", class: "btn btn-primary pull-right" %>
 <% end %>
 <p><%= link_to "Revenir à sur la messagerie", conversations_index_path, :class => "btn btn-warning pull-right"  %></p>
