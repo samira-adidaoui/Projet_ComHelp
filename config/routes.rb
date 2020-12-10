@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'messages/index'
+  get 'conversations/index'
   devise_for :users
   root 'posts#index'
   resources :posts do
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users
 	  scope 'admin', module: 'admin', as: 'admin' do
     resources :landing, only: [:index]
     resources :users, only: [:index, :edit, :update, :destroy]
@@ -24,4 +27,7 @@ Rails.application.routes.draw do
   
   resources :cgu, only: [:index]
   resources :privacy, only: [:index]
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
 end
