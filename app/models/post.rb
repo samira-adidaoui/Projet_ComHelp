@@ -18,29 +18,17 @@ class Post < ApplicationRecord
 			AdminMailer.new_ad_notification(self).deliver_now
     end
 
-	def automatic_tweet
-		if self.is_validated == true
-    	client = Twitter::REST::Client.new do |config|
-    	config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
-    	config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
-    	config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-    	config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
-  	end
-    	client.update("Annonce postée à #{self.city.city_name} : #{self.description}")
+		def automatic_tweet
+			if self.is_validated == true
+    		client = Twitter::REST::Client.new do |config|
+    		config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+    		config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+    		config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+    		config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
+  		end
+    		client.update("Annonce postée à #{self.city.city_name} : #{self.description}")
+			end
 		end
-	end
- 
-=begin
-    include AlgoliaSearch
-
-    algoliasearch do
-        attributes :user, :category, :city
-    end
-
-    algoliasearch do
-        tags ["user", "category", "city"]
-      end
-=end
 end
 
 
