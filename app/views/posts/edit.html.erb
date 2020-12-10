@@ -6,16 +6,28 @@
     <div class="w-100 p-4" style="background-color: #eee;">
         <%= form_for @post, :method => :patch do |f| %>
             <p>
-            <%= f.label :titre %> <br>
-            <%= f.text_field :title %>
-        </p>
-        <p>
-            <%= f.label :ville %> <br>
-            <%= f.collection_select :city_id, City.order(:city_name), :id, :city_name %>           
-        </p>
-        <p>
-            <%= f.collection_select :category_id, Category.order(:name), :id, :name %>           
-        </p>
+                <%= f.label :title %><br>
+                <%= f.text_field :title %>
+            </p>
+            <p>
+                <%= f.label :ville %> <br>
+                <%= f.text_field :city, value: @post.city.city_name %>
+            </p>
+            <p>
+                <form action="/posts" methode ="put">
+                <label for="Categories">Choisir une categorie:</label><br>
+                <select id="category" name="category_name">
+                    <option value="Bricolage">Bricolage</option>
+                    <option value="Jardinage">Jardinage</option>
+                    <option value="Soutien scolaire">Soutien scolaire</option>
+                    <option value="Garde d'enfants">Garde d'enfants</option>
+                    <option value="Informatique/Bureautique">Informatique/Bureautique</option>
+                    <option value="Animaux">Animaux</option>
+                    <option value="Service à la personne">Service à la personne</option>
+                    <option value="Dons de matériel">Dons de matériel</option>
+                    <option value="Administratif">Administratif</option>
+                </select>
+            </p>
             <p>
                 <%= f.label :description %><br>
                 <%= f.text_area :description %>
