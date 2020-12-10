@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_113020) do
+ActiveRecord::Schema.define(version: 2020_12_09_125954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2020_12_07_113020) do
     t.string "city_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "post_id"
   end
 
   create_table "conversations", id: :serial, force: :cascade do |t|
@@ -88,7 +96,6 @@ ActiveRecord::Schema.define(version: 2020_12_07_113020) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
   create_table "votes", id: :serial, force: :cascade do |t|
     t.string "votable_type"
     t.integer "votable_id"
@@ -103,8 +110,6 @@ ActiveRecord::Schema.define(version: 2020_12_07_113020) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
-=======
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
->>>>>>> develop
 end
