@@ -1,19 +1,19 @@
 <p><%= link_to "Messagerie", conversations_index_path, :class => "btn btn-warning pull-right"  %></p>
 
 <div class="row">
-  	<div class="col-md-4" style="background-image: url(https://images.pexels.com/photos/4113831/pexels-photo-4113831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);"></div>
-  	   <div class="col-md-1"></div>
-  	     <div class="col-md-5">
-  		   <br>
+    <div class="col-md-4" style="background-image: url(https://images.pexels.com/photos/4113831/pexels-photo-4113831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);"></div>
+       <div class="col-md-1"></div>
+         <div class="col-md-5">
+         <br>
          <% if user_signed_in? && current_user.id == @user.id %>
-    	     <div class="card border" >
-  			     <div class="card-body">
-     			     <h4><b>Mes données personnelles :</b></h4>
-     			     <hr>
-				          <ul class="list">
-  					          <li class="text-dark mt-3">Mon <b>prénom</b> : <%= @user.first_name %></li>
-    				          <li class="text-dark mt-3">Mon <b>nom</b> : <%= @user.last_name %></li>
-					            <li class="text-dark mt-3">Mon <b>e-mail</b> : <%= @user.email %></li>
+           <div class="card border" >
+             <div class="card-body">
+               <h4><b>Mes données personnelles :</b></h4>
+               <hr>
+                  <ul class="list">
+                      <li class="text-dark mt-3">Mon <b>prénom</b> : <%= @user.first_name %></li>
+                      <li class="text-dark mt-3">Mon <b>nom</b> : <%= @user.last_name %></li>
+                      <li class="text-dark mt-3">Mon <b>e-mail</b> : <%= @user.email %></li>
                       <li><h6><b>Nombre d'avis favorables / défavorables</b> :  
                       <span>
                         <button type="button" class="like btn btn-success">
@@ -30,10 +30,10 @@
                       </span>
                  </h6></li></ul>
                  <hr>
-	    		         <hr>
-	   			         <h6 class="profile-pad">Je souhaite modifier mes données personnelles ou mon mot de passe ?</h6>
+                   <hr>
+                   <h6 class="profile-pad">Je souhaite modifier mes données personnelles ou mon mot de passe ?</h6>
                    <%= link_to "C'est par ici !", edit_user_registration_path(@user.id), class: 'btn btn-primary profile-btn' %>
-  			     </div>
+             </div>
             </div>
           <% else %>
           <div class="card border">
@@ -45,7 +45,7 @@
                   <li><h6><b>Nom</b> : <%= @user.last_name %></h6></li>
                   <li><h6><b>Adresse e-mail</b> : <%= @user.email %></h6></li>
                   <% if user_signed_in? && user_is_allowed_to_vote? && ! current_user.find_voted_items.include?(@user) %>
-                      <%= link_to like_user_path(@user), method: :put do %>
+                      <%= link_to like_user_path(@user), method: :put, remote: true do %>
                         <span>
                           <button type="button" class="like btn btn-success">
                             <i class="far fa-thumbs-up" aria-hidden="true"></i>
@@ -53,7 +53,7 @@
                           </button>
                         </span>
                       <% end %>
-                     <%= link_to unlike_user_path(@user), method: :put do %>
+                     <%= link_to unlike_user_path(@user), method: :put, remote: true do %>
                         <span>
                           <button type="button" class="dislike btn btn-danger">
                             <i class="far fa-thumbs-down" aria-hidden="true"></i>
@@ -133,9 +133,7 @@
           <% end %>
         </div>
       </div>
-		<br>
-		<br>
+    <br>
+    <br>
     <br>
     <%= link_to "Créer une nouvelle annonce", new_post_path,  :class => "btn btn-outline-primary text-center pull-right" %>
-
-

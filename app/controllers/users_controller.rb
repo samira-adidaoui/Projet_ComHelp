@@ -3,8 +3,13 @@ class UsersController < ApplicationController
   helper_method :user_is_allowed_to_vote?
   
   def show
-    @user = User.find(params[:id])
+  if User.exists?(params[:id])
+      @user = User.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
+
 
   def upvote
     @user = User.find(params[:id])
