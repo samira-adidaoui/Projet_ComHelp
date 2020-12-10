@@ -14,9 +14,13 @@ class User < ApplicationRecord
        validates :first_name, presence: true
        validates :last_name, presence: true
          
+<<<<<<< HEAD
 #       after_create :welcome_send
+=======
+       # after_create :welcome_send
+>>>>>>> develop
 
-       def welcome_send
-              UserMailer.welcome_email(self).deliver_now
-       end
+       # def welcome_send
+       #        UserMailer.welcome_email(self).deliver_now
+       # end
 end

@@ -14,8 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
-    
+  def create  
     if City.find_by(city_name:params[:post][:city]) == nil
       City.create(city_name:params[:post][:city])
     end

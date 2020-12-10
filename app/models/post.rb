@@ -14,6 +14,7 @@ class Post < ApplicationRecord
     validates :title, presence: true, length: { in: 5..140 }
     validates :description, presence: true, length: { in: 20..1000}
 
+<<<<<<< HEAD
     def email_to_admin
 			AdminMailer.new_ad_notification(self).deliver_now
     end
@@ -29,6 +30,12 @@ class Post < ApplicationRecord
     		client.update("Annonce postée à #{self.city.city_name} : #{self.description}")
 			end
 		end
+=======
+    # def notif_new
+	# AdminMailer.new_ad_notification(self).deliver_now
+    # end
+    
+>>>>>>> develop
 end
 
 
