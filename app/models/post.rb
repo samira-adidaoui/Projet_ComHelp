@@ -1,7 +1,7 @@
 require 'twitter'
 
 class Post < ApplicationRecord
-    after_create :email_to_admin, :automatic_tweet
+    # after_create :notif_new
 
     belongs_to :user
     belongs_to :category
@@ -27,17 +27,7 @@ class Post < ApplicationRecord
     client.update("Annonce postée à #{self.city.city_name} : #{self.description}")
 	end
     
-=begin
-    include AlgoliaSearch
 
-    algoliasearch do
-        attributes :user, :category, :city
-    end
-
-    algoliasearch do
-        tags ["user", "category", "city"]
-      end
-=end
 end
 
 
