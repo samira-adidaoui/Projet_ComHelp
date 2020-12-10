@@ -10,23 +10,10 @@
         </p>
         <p>
             <%= form.label :ville %> <br>
-            <%= form.text_field :city %>
+            <%= form.collection_select :city_id, City.order(:city_name), :id, :city_name %>           
         </p>
         <p>
-            <form action="/posts" methode ="post">
-            <label for="Categories">Choisir une categorie:</label><br>
-            <select id="category" name="category_name">
-                <option value="Bricolage">Bricolage</option>
-                <option value="Jardinage">Jardinage</option>
-                <option value="Soutien scolaire">Soutien scolaire</option>
-                <option value="Garde d'enfants">Garde d'enfants</option>
-                <option value="Informatique/Bureautique">Informatique/Bureautique</option>
-                <option value="Animaux">Animaux</option>
-                <option value="Service à la personne">Service à la personne</option>
-                <option value="Dons de matériel">Dons de matériel</option>
-                <option value="Administratif">Administratif</option>
-            </select>
-            
+            <%= form.collection_select :category_id, Category.order(:name), :id, :name %>           
         </p>
         <p>
             <%= form.label :description %> <br>
