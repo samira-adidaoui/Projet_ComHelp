@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    after_create :notif_new
+    # after_create :notif_new
 
     belongs_to :user
     belongs_to :category
