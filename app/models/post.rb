@@ -8,18 +8,19 @@ class Post < ApplicationRecord
     has_many :participations
     has_many :users, through: :participations
     
-    include AlgoliaSearch
     
     validates :title, presence: true, length: { in: 5..140 }
     validates :description, presence: true, length: { in: 20..1000}
+   
 =begin
     def notif_new
 	AdminMailer.new_ad_notification(self).deliver_now
     end
 =end
-
+    include AlgoliaSearch
+    
     algoliasearch per_environment: true do
-        attribute :category, :city
+        attribute :category, :city, :title, :description
     end
     
     

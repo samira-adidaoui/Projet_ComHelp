@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-=begin
+
 User.destroy_all
 User.reset_pk_sequence
 
@@ -22,7 +22,7 @@ Post.reset_pk_sequence
 
 Participation.destroy_all
 Participation.reset_pk_sequence
-=end
+
 
 t1 = Time.parse("2020-11-01 14:40:34")
 t2 = Time.parse("2022-01-01 00:00:00")
