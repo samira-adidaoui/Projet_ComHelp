@@ -8,12 +8,10 @@ class ParticipationsController < ApplicationController
     end
 
     def show
-        @participation = Participation.find(params[:id])
-        
+        @participation = Participation.find(params[:id])        
     end
 
     def create
-
         @post = Post.find(params[:post_id])
         @participation = Participation.new(user_id: current_user.id, post_id: @post.id)
 
