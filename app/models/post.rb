@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    after_create :notif_new
+    # after_create :notif_new
 
     belongs_to :user
     belongs_to :category
@@ -15,17 +15,7 @@ class Post < ApplicationRecord
 	AdminMailer.new_ad_notification(self).deliver_now
     end
     
-=begin
-    include AlgoliaSearch
 
-    algoliasearch do
-        attributes :user, :category, :city
-    end
-
-    algoliasearch do
-        tags ["user", "category", "city"]
-      end
-=end
 end
 
 
