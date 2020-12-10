@@ -18,7 +18,6 @@ class UsersController < ApplicationController
        format.html { redirect_to user_path(@user.id) }
        format.js { }
 	      end
-    redirect_to user_path(@user.id)
   end
 
   def downvote
@@ -28,7 +27,6 @@ class UsersController < ApplicationController
        format.html { redirect_to user_path(@user.id) }
        format.js { }
         end
-    redirect_to user_path(@user.id)
   end
 
   private
