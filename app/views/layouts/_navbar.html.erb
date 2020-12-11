@@ -1,58 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-grad">
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="d-flex justify-content-start">
         <ul class="navbar-nav mr-auto">
           <li class="col-sm-2">
             <img src="https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg" alt="logo" class="img-responsive">
-          </li>
-          
+          </li>          
           <li class="nav-item active">
-            <%= link_to "Accueil", root_path, :class => "nav-link" %>
+            <%= link_to "Accueil", root_path, :class => "nav-link text-light" %>
           </li>
           <%if user_signed_in? %>
-          <li class="nav-item dropdown">
-          <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
-
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              
-              <%= link_to "Mon Profil", user_path(:id => current_user.id), :class => "dropdown-item" %>
-              <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, :class => "dropdown-item" %>
-            </div>
-          </li>
+            <li class="nav-item dropdown">
+              <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown text-light' %>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">              
+                <%= link_to "Mon Profil", user_path(:id => current_user.id), :class => "dropdown-item" %>
+                <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, :class => "dropdown-item" %>
+              </div>
+            </li>
           <%else %>
             <li class="nav-item dropdown">
               <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                <%= link_to "Se connecter", new_user_session_path, :class => "dropdown-item" %>
-                <%= link_to "Nouveau client?",  new_user_registration_path, :class => "dropdown-item"%>
-              </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">                
+                  <%= link_to "Se connecter", new_user_session_path, :class => "dropdown-item" %>
+                  <%= link_to "Nouveau client?",  new_user_registration_path, :class => "dropdown-item"%>
+                </div>
             </li>
           <%end%>
         </ul>
       </div>
       <div class="d-flex justify-content-end">
-        <ul class="navbar-nav mr-auto" >
-          
+        <ul class="navbar-nav mr-auto" >         
           <% if user_signed_in? %>
-          <li class="nav-item p-2">
-            <%= link_to "Créer une annonce", new_post_path, :class => "nav-link" %>
-          </li>
+            <li class="nav-item p-2">
+              <%= link_to "Créer une annonce", new_post_path, :class => "nav-link text-light" %>
+            </li>
           <%end%>
 					<% if user_signed_in? && current_user.is_admin %>
-          <li class="nav-item p-2">
-            <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>
-          </li>
-          <% end %>
-          
-          <li class="nav-item dropdown p-2">
-            
-            <%= link_to 'Sélection par catégorie'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
-
-            <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
-              
+            <li class="nav-item p-2">
+              <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>
+            </li>
+          <% end %>         
+          <li class="nav-item dropdown p-2">           
+            <%= link_to 'Sélection par catégorie'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown text-light' %>
+            <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">              
               <%= link_to "Bricolage", category_path(1), :class => "dropdown-item" %>
               <%= link_to "Jardinage", category_path(2), :class => "dropdown-item" %>
               <%= link_to "Soutien scolaire", category_path(3), :class => "dropdown-item" %>
@@ -66,12 +56,12 @@
             </div>
 	        </li>
           <li class="nav-item p-2">
-            <%= link_to "A Propos", team_index_path, :class => "nav-link" %>
+            <%= link_to "A Propos", team_index_path, :class => "nav-link text-light" %>
           </li>
         </ul>
       </div> 
     </div>
-  </nav>
+</nav>
 
 
   

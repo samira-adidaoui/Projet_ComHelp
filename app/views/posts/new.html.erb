@@ -1,20 +1,24 @@
-<div class="form-control-lg text-center w-100">
-    <div class="w-100 p-4" style="background-color: #eee;">
-        <h2>Ecrire une nouvelle annonce</h2>
-    </div>
-    <div class="w-100 p-4 h-75" style="background-color: #eee;">
-    <%= form_for @post do |form| %>
-        <p>
-            <%= form.label :titre %> <br>
-            <%= form.text_field :title %>
-        </p>
-        <p>
-            <%= form.label :ville %> <br>
-            <%= form.text_field :city %>
-        </p>
+<div class="form-control-lg d-flex align-items-center container w-100"  style="background-color: #eee">    
+    <div class=" p-4 h-75 w-50 align-items-center container text-center">
+        <div class="p-4 ">
+            <h2>Ecrire une nouvelle annonce</h2>
+        </div>
+        <%= form_for @post do |form| %>
+        <p class="text-dark">
+            <%= form.label :titre%>
+        </p> 
+        <div class="form-group"> 
+            <%= form.text_field :title, class:'form-control' %>
+        </div>        
+        <p class="text-dark">
+            <%= form.label :ville %>
+        </p> 
+        <div class="form-group"> 
+            <%= form.text_field :city, class: 'form-control' %>
+        </div>       
         <p>
             <form action="/posts" methode ="post">
-            <label for="Categories">Choisir une categorie:</label><br>
+            <label for="Categories" class="text-dark">Choisir une categorie:</label><br>
             <select id="category" name="category_name">
                 <option value="Bricolage">Bricolage</option>
                 <option value="Jardinage">Jardinage</option>
@@ -25,26 +29,23 @@
                 <option value="Service à la personne">Service à la personne</option>
                 <option value="Dons de matériel">Dons de matériel</option>
                 <option value="Administratif">Administratif</option>
-            </select>
-            
+            </select>           
         </p>
-        <p>
-            <%= form.label :description %> <br>
-            <%= form.text_area :description %>
+        <p class="text-dark">
+            <%= form.label :description %>
+        </p> 
+        <div class="form-group"> 
+            <%= form.text_area :description, class: 'textarea form-control row:10' %>
+        </div>       
+        <p class="text-dark">
+            <%= form.label :datetime %>
         </p>
-        <p>
         <div class="form-group">
-            <%= form.label :datetime %><br />
             <%= form.date_field :datetime, autofocus: true, autocomplete: "datetime" %>
         </div>           
-        </p>
         <p>
-            <%= form.submit "Poster" %>
+            <%= form.submit "Poster", class:"button is-info btn btn-primary" %>
         </p>
-
-    <% end %>
-
-        
-</form>
+        <% end %>
     </div>
 </div>

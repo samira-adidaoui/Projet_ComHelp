@@ -1,5 +1,4 @@
 <body>
-
 	<div class="left bg-grad pattern-overlay-4">
 		<div class="container">
 			<div class="row all-text-white">
@@ -9,7 +8,6 @@
 			</div>
 		</div>
 	</div>
-
 	<section>
 		<div class="container h-100">
 			<div class="row">
@@ -17,32 +15,29 @@
 					<div class="title text-left">
 						<h2><span class="text-primary"> <%=@post.title%> </span></h2>
 						<p class="mb-0">Description : <%=@post.description%> </p>
-
 						<div class="list-group-inline list-group-number list-unstyled mt-4">
-						 <p> Nombre de Paticipants: <%= @participant.count %></p>
-						 Participant(s):
-						<%@participant.each do |participant|%>
-							<% if user_signed_in? %>
-								<%= link_to participant.user.first_name, user_path(participant.user.id)%> /
-							<% else %>
-								<%= link_to participant.user.first_name, new_user_session_path %> /
+							<p> Nombre de Paticipants: <%= @participant.count %>
+								Participant(s):
+							</p>						 
+							<%@participant.each do |participant|%>
+								<% if user_signed_in? %>
+									<%= link_to participant.user.first_name, user_path(participant.user.id)%> /
+								<% else %>
+									<%= link_to participant.user.first_name, new_user_session_path %> /
+								<%end%>
 							<%end%>
-						<%end%>
-						<p class="mb-0">Date : <%=@post.datetime%> </p>
-						<% if user_signed_in? %>
-
-						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}", user_path(@post.user.id)%> </p>
-						<% else %>
-						<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}", new_user_session_path %> </p>
-
-						<%end%>
-
+							<p class="mb-0">Date : <%=@post.datetime%> </p>
+							<% if user_signed_in? %>
+								<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}", user_path(@post.user.id)%> </p>
+							<% else %>
+								<p class="mb-0">Auteur : <%= link_to "#{@post.user.first_name} " "#{@post.user.last_name}", new_user_session_path %> </p>
+							<%end%>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
 					<img class="card-img" src="<%=@post.category.picture_url%>">
-				<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
+					<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
 					</div>
 				</div>
 			</div>
@@ -66,8 +61,7 @@
 					<p><%= link_to "Supprimer", @post, :confirm => "Ce post sera supprimé définitivement!", :method => :delete, :class => "text-danger pull-right" %></p>
 				</div>
 			<%end%>
-
-		</section>
-
+		</div>
+	</section>
 </body>
 
