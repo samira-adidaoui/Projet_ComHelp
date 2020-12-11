@@ -1,4 +1,4 @@
-const searchClient = algoliasearch('XRDT1NI3ZK','ALGOLIASEARCH_API_KEY_SEARCH');
+const searchClient = algoliasearch('XRDT1NI3ZK','fbf1725475ec1845c71f24b6ee7fdf89');
 
 const search = instantsearch({
   indexName: 'Post_development',
