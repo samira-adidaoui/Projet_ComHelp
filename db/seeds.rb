@@ -55,8 +55,8 @@ picture_array = ["https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/B
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/informatique_bureautique/computer-1245714_640.jpg",
                 "https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/administratif/Administratif.jpg"]
 
-5.times do
-    City.create(city_name: Faker::Address.city)
+99.times do
+    City.create(city_name: Faker::Address.unique.city)
 end
 
 (category_array.length).times do |i|
