@@ -14,9 +14,9 @@ class Post < ApplicationRecord
     validates :title, presence: true, length: { in: 5..140 }
     validates :description, presence: true, length: { in: 20..1000}
 
-    def notif_new
-	AdminMailer.new_ad_notification(self).deliver_now
-    end
+    def email_to_admin
+        AdminMailer.new_ad_notification(self).deliver_now
+     end
     
     def automatic_tweet
         if self.is_validated == true
