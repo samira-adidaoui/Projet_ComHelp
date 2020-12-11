@@ -1,3 +1,9 @@
+<style>
+  .no-click {
+    pointer-events: none;
+}
+</style>
+
 <p><%= link_to "Messagerie", conversations_index_path, :class => "btn btn-warning pull-right"  %></p>
 
 <div class="row">
@@ -16,16 +22,16 @@
                       <li class="text-dark mt-3">Mon <b>e-mail</b> : <%= @user.email %></li>
                       <li><h6><b>Nombre d'avis favorables / défavorables</b> :  
                       <span>
-                        <button type="button" class="like btn btn-success">
+                        <button type="button" class="like btn btn-success no-click">
                           <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                          <%= @user.get_upvotes.size %>
+                          <span class="badge"><%= @user.get_upvotes.size %></span>
                         </button>
                       </span>
 
                       <span>
-                        <button type="button" class="like btn btn-danger">
+                        <button type="button" class="like btn btn-danger no-click">
                           <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                          <%= @user.get_downvotes.size %>
+                          <span class="badge"><%= @user.get_downvotes.size %></span>
                         </button>
                       </span>
                  </h6></li></ul>
@@ -45,19 +51,19 @@
                   <li><h6><b>Nom</b> : <%= @user.last_name %></h6></li>
                   <li><h6><b>Adresse e-mail</b> : <%= @user.email %></h6></li>
                   <% if user_signed_in? && user_is_allowed_to_vote? && ! current_user.find_voted_items.include?(@user) %>
-                      <%= link_to like_user_path(@user), method: :put do %>
+                      <%= link_to like_user_path(@user), method: :put, remote: true do %>
                         <span>
                           <button type="button" class="like btn btn-success">
                             <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                            <%= @user.get_upvotes.size %>
+                          <span class="badge"><%= @user.get_upvotes.size %></span>
                           </button>
                         </span>
                       <% end %>
-                     <%= link_to unlike_user_path(@user), method: :put do %>
+                     <%= link_to unlike_user_path(@user), method: :put, remote: true do %>
                         <span>
                           <button type="button" class="dislike btn btn-danger">
                             <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                            <%= @user.get_downvotes.size %>
+                          <span class="badge"><%= @user.get_downvotes.size %></span>
                           </button>
                         </span>
                      <% end %>
@@ -66,15 +72,15 @@
                     <% else %>
                     <li><h6><b>Nombre d'avis favorables / défavorables</b>
                       <span>
-                        <button type="button" class="like btn btn-success">
+                        <button type="button" class="like btn btn-success no-click">
                           <i class="far fa-thumbs-up" aria-hidden="true"></i>
-                          <%= @user.get_upvotes.size %>
+                          <span class="badge"><%= @user.get_upvotes.size %></span>
                         </button>
                       </span>
                       <span>
-                        <button type="button" class="dislike btn btn-danger">
+                        <button type="button" class="dislike btn btn-danger no-click">
                           <i class="far fa-thumbs-down" aria-hidden="true"></i>
-                          <%= @user.get_downvotes.size %>
+                          <span class="badge"><%= @user.get_downvotes.size %></span>
                         </button>
                       </span>
                       </h6></li>
