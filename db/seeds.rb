@@ -65,7 +65,7 @@ end
     picture_url: picture_array[i])
 end
 
-20.times do
+5.times do
     User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end  
 
