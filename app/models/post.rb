@@ -2,7 +2,7 @@ require 'twitter'
 
 class Post < ApplicationRecord
 #    after_create :email_to_admin
-		after_commit :automatic_tweet
+#		after_commit :automatic_tweet
 
     belongs_to :user
     belongs_to :category
