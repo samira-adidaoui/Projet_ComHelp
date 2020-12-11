@@ -1,5 +1,8 @@
+require 'twitter'
+
 class Post < ApplicationRecord
-    # after_create :notif_new
+#    after_create :email_to_admin
+#		after_commit :automatic_tweet
 
     belongs_to :user
     belongs_to :category
@@ -15,7 +18,6 @@ class Post < ApplicationRecord
 	# AdminMailer.new_ad_notification(self).deliver_now
     # end
     
-
 end
 
 
