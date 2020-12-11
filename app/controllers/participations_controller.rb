@@ -1,6 +1,6 @@
 class ParticipationsController < ApplicationController
 
-    before_action :authenticate, only: [:create]
+    before_action :authenticate_user!, only: [:create]
 
     def new
         participation = Participation.new
@@ -8,12 +8,10 @@ class ParticipationsController < ApplicationController
     end
 
     def show
-        @participation = Participation.find(params[:id])
-        
+        @participation = Participation.find(params[:id])        
     end
 
     def create
-
         @post = Post.find(params[:post_id])
         @participation = Participation.new(user_id: current_user.id, post_id: @post.id)
 
@@ -38,14 +36,4 @@ class ParticipationsController < ApplicationController
             redirect_to root_path
         end
     end      
-    
-    private
-    def authenticate
-        if current_user == nil
-            flash[:danger] = "Vous devez être connecté pour effectuer cette action"
-            redirect_to posts_path
-        end
-    end
-   
-      
 end

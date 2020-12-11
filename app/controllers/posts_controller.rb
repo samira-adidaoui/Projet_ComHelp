@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]  
+  before_action :check_property_or_is_admin, only: [:edit, :update, :destroy]  
+  
   def index
     @post = Post.all
     @category = Category.all
@@ -14,19 +16,18 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create  
-    if City.find_by(city_name:params[:post][:city]) == nil
-      City.create(city_name:params[:post][:city])
-    end
-      new_post_city = City.find_by(city_name:params[:post][:city])
-      @post = Post.new(title:params[:post][:title], city:new_post_city, description:params[:post][:description], user:current_user, datetime:params[:post][:datetime], category:Category.find_by(name:params[:category_name]))
+  def create
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     if @post.save
-      redirect_to posts_path notice: "Annonce créée avec succès!"
+      redirect_to root_path 
+      flash[:success] = "Annonce créée avec succès!"
     else
-      render "new"
-    end
+      flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@post.errors.full_messages.each {|message| message}.join('')}"
+      redirect_to controller: 'posts', :action => 'new'
 
+    end
   end
 
   def update
@@ -66,15 +67,14 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :category_name, :datetime)
+    params.require(:post).permit(:title, :description, :category_id, :datetime, :city_id)
   end
 
-
-  def authenticate
-    if Post.find(params[:id]) != nil && Post.find(params[:id]).user != current_user
-      flash[:danger] = "Vous n'êtes pas autorisé à effectuer cette action"
-      redirect_to posts_path
-    end
+  def check_property_or_is_admin
+    if current_user.id != @post.user_id && !current_user.is_admin
+      flash[:alert] = "Vous n'êtes pas propriétaire de ce post !"
+      redirect_to root_path
+    end  
   end
 
 end
