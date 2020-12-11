@@ -1,8 +1,3 @@
-<style>
-  .no-click {
-    pointer-events: none;
-}
-</style>
 
 <p><%= link_to "Messagerie", conversations_index_path, :class => "btn btn-warning pull-right"  %></p>
 
@@ -84,6 +79,7 @@
                         </button>
                       </span>
                       </h6></li>
+                      <small>Vous ne pouvez attribuer un vote à un utilisateur que s'il répondu à une de vos annonces ou posté une annonce à laquelle vous avez répondu.</small>
                     <% end %>
                   </ul>
 
