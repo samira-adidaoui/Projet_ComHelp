@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
 	def create
-		Post.find(params[:id]).update(is_validated:true)
+		Post.find(params[:id]).update(is_validates:true)
 		redirect_to admin_posts_path
 	end
 

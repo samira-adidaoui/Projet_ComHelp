@@ -4,6 +4,13 @@
                 <div class="col-md-8 mb-7">
                     <h4 class="text-white"> Rapprochons nous et retrouvons nous !</h4>
                     <h1 class="display-4 font-weight-bold text-white">Comhelp</h1>
+                    <div class="container">
+                    <% if user_signed_in? %>
+                      <%= link_to "Poster votre annonce", new_post_path,  :class => "btn btn-primary" %>
+                    <% else %>
+                      <%= link_to "Connectez-vous", new_user_session_path, class: 'btn btn-dark  ml-2 mr-0 text-light'%>
+                    <%end%>
+                  </div>
                 </div>
             </div>
         </div>
@@ -80,7 +87,7 @@
 </h1>
 
 <div class="row">
-  <%@post.where(is_validated:true).each do |post|%>
+  <%@post.each do |post|%>
     <div class="card mx-auto my-4 shadow" style="width: 25rem;">
       <div class="album py-5 bg-light">
         <div class="container">
