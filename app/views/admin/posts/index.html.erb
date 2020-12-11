@@ -4,7 +4,7 @@
   <div class="col-md-6">
   <h3>Les annonces actuellement en attente de validation sont :</h3>
   <br>
-  <% Post.where(is_validates:nil).all.each do |post| %>
+  <% Post.where(is_validated:nil).all.each do |post| %>
     <div class="card" style="width: 25rem;">
       <div class="card-body">
         <p class="card-text" style="color:yellow"><b>Annonce en attente</b></p>
@@ -24,7 +24,7 @@
   <div class="col-md-6">
     <h3>Les annonces actuellement validées sont :</h3>
     <br>
-      <% Post.where(is_validates:true).all.each do |post| %>
+      <% Post.where(is_validated:true).all.each do |post| %>
       <div class="card" style="width: 25rem;">
         <div class="card-body">    
           <p class="card-text" style="color:green"><b>Annonce validée</b></p>

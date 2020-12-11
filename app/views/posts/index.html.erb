@@ -91,7 +91,7 @@
 </h1>
 
 <div class="row">
-  <%@post.each do |post|%>
+  <%@post.where(is_validated:true).each do |post|%>
     <div class="card mx-auto my-4 shadow" style="width: 25rem;">
       <div class="album py-5 bg-light">
         <div class="container">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_184110) do
+ActiveRecord::Schema.define(version: 2020_12_11_105300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_184110) do
     t.bigint "city_id"
     t.bigint "user_id"
     t.bigint "category_id"
-    t.boolean "is_validates"
+    t.boolean "is_validated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_posts_on_category_id"
