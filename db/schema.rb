@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_12_10_175729) do
     t.bigint "city_id"
     t.bigint "user_id"
     t.bigint "category_id"
-    t.boolean "is_validated"
+    t.boolean "is_validates"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_posts_on_category_id"
