@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Faker::Config.locale = :fr
 
 Message.destroy_all
 Message.reset_pk_sequence
