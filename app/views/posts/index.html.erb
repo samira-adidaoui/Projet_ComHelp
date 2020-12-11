@@ -51,50 +51,14 @@
 			</div>
 		</div>
 </section>
+
 <!--Searchbox-->
   <div class="right-panel mt-3 ml-3">
-    <div id="searchbox">
-      <div class="ais-SearchBox">
-      <form class="ais-SearchBox-form" novalidate>
-        <input class="ais-SearchBox-input" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Rechercher une annonce" spellcheck="false" maxlength="512" type="search" value="" />
-        <button class="ais-SearchBox-submit" type="submit" title="Submit the search query.">
-          <svg class="ais-SearchBox-submitIcon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
-            ...
-          </svg>
-        </button>
-        <button class="ais-SearchBox-reset" type="reset" title="Clear the search query." hidden>
-          <svg class="ais-SearchBox-resetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="10" height="10">
-            ...
-          </svg>
-        </button>
-        <span class="ais-SearchBox-loadingIndicator" hidden>
-          <svg width="16" height="16" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#444" class="ais-SearchBox-loadingIcon">
-            ...
-          </svg>
-        </span>
-      </form>
-    </div>
+    <div id="searchbox"></div>
   </div>
-  <!-- Fin Searchbox-->
+<!-- Fin Searchbox-->
 
-  <!-- Clear_refinements-->
-  <div id="clear-refinements"></div>
-  <!-- fin Clear_refinements-->
-
-<!--RefinementList-List-->
-  <ul class="ais-RefinementList-List list-unstyled">
-    <li class="ais-RefinementList-item">
-      <div id="category-list">
-        <%@category.each do |category|%>
-          <label class="ais-RefinementList-label">
-            <input type="checkbox" class="ais-RefinementList-checkbox">
-            <span class="ais-RefinementList-labelText"><%= category.name %></span>
-          </label>
-        <%end%>
-      </div>
-    </li>
-  </ul>
-<!--Fin RefinementList-List-->
+<div id="hits"></div>
 
 
 <h1 class="display-4 text-center">
