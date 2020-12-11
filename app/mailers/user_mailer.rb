@@ -1,5 +1,8 @@
 class UserMailer < ApplicationMailer
+<<<<<<< HEAD
 =begin
+=======
+>>>>>>> develop
   default from: 'alexsteph22@gmail.com'
  
   def welcome_email(user)

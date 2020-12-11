@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="form-control-lg text-center w-100">
     <div class="w-100 p-4" style="background-color: #eee;">
         <h2>Ecrire une nouvelle annonce</h2>
@@ -48,3 +49,42 @@
 </form>
     </div>
 </div>
+=======
+    <div class="form-control-lg text-center w-100">
+        <div class ="card border-primary mx-auto w-50">
+            <div class= "d-flex flex-column">
+                <div class="w-100 p-4 h-75" style="background-color: #eee;">
+                    <h2>Ecrire une nouvelle annonce</h2>
+                    <div class="form mx-auto">
+                        <%= form_for @post do |form| %>
+                            <div class="field mb-3">
+                                <%= form.label :titre %> 
+                                <%= form.text_field :title %>
+                            </div>
+                            <div class="field">
+                                <%= form.label :Ville %>
+                                <%= form.collection_select :city_id, City.order(:city_name), :id, :city_name %>
+                            </div>
+                            <div class="field">
+                                <%= form.label :Categorie %>
+                                <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+                            </div>
+                            <div class="field">
+                                <%= form.label :description %>
+                                <%= form.text_area :description %>
+                            </div>
+                            <div class="form-group mb-3">
+                                <%= form.label :datetime %> 
+                                <%= form.date_field :datetime, autofocus: true, autocomplete: "datetime" %>
+                            </div>                                 
+                            <div class="actions ml-4 mt-4">
+                                <%= form.submit "Poster", :class => "btn btn-primary"%>
+                            </div>
+                        <% end %>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </form>
+</section>
+>>>>>>> develop
