@@ -24,7 +24,7 @@ class PostsController < ApplicationController
       redirect_to root_path 
       flash[:success] = "Annonce créée avec succès!"
     else
-      flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@post.errors.full_messages.each {|message| message}.join('')}"
+      flash[:danger] = "Votre annonce n'a pas pu être enregistrée pour la/les raison(s) suivante(s) : #{@post.errors.full_messages.each {|message| message}.join('')}"
       redirect_to controller: 'posts', :action => 'new'
 
     end
@@ -33,15 +33,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if City.find_by(city_name:params[:post][:city]) == nil
-      City.create(city_name:params[:post][:city])
-    end
-      new_post_city = City.find_by(city_name:params[:post][:city])
-      if @post.update(title:params[:post][:title], city:new_post_city, description:params[:post][:description], user:current_user, datetime:params[:post][:datetime], category:Category.find_by(name:params[:category_name]))
-
-    #if  @post.update_attributes(post_params)
+    if @post.update(post_params)
       redirect_to posts_path(@post.id), notice => "Votre post a été mis a jour"
     else
+      flash[:danger] = "Votre annonce n'a pas pu être modifiée pour la/les raison(s) suivante(s) : #{@post.errors.full_messages.each {|message| message}.join('')}"
       render "edit"
     end
   end
@@ -71,6 +66,7 @@ class PostsController < ApplicationController
   end
 
   def check_property_or_is_admin
+    @post = Post.find(params[:id])
     if current_user.id != @post.user_id && !current_user.is_admin
       flash[:alert] = "Vous n'êtes pas propriétaire de ce post !"
       redirect_to root_path

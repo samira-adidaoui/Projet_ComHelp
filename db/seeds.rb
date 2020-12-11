@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Faker::Config.locale = :fr
 
 Message.destroy_all
 Message.reset_pk_sequence
@@ -68,11 +69,13 @@ end
     User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end  
 
-1.times do
-    Post.create(datetime: rand(t1..t2), title: Faker::Lorem.sentence(word_count: 6), user: User.all.sample, description: Faker::Lorem.sentence(word_count: 30), city: City.all.sample, category: Category.all.sample)
+ad_titles = ['besoin d\'un coup de main pour déménagement','recherche aide aux devoirs maths et français pour élève de CE2','mon pc ne démarre plus et reste figé sur écran noir','cherche aimable personne pour arroser une plante tous les deux jours après mon départ', 'cherche quelqu\'un pour garder mon chat','je recherche une tournevis en étoile à six branches','cherche vieille table basse ou meuble télé à donner','besoin d\'aide pour remplir ma première déclaration d\'impôts']
+
+ad_titles.length.times do |i|
+    Post.create(datetime: rand(t1..t2), title: ad_titles[i], user: User.all.sample, description: Faker::Lorem.sentence(word_count: 30), city: City.all.sample, category: Category.all.sample)
   end
 
-1.times do
+10.times do
     Participation.create(user: User.all.sample, post: Post.all.sample)
 end
 
