@@ -14,7 +14,7 @@ const search = instantsearch({
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: '#searchbox',
-    placeholder: 'Recherchez une annonce'
+    placeholder: 'Entrez un mot-clé'
   }),
   instantsearch.widgets.hits({
     container: '#hits',
