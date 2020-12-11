@@ -1,29 +1,29 @@
 <section class="p-0 height-700 parallax-bg" style="background-image: url(https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Bricolage/jardinage+1280.jpg)">
         <div class="container h-100">
-            <div class="row justify-content-between align-items-center h-100">
-                <div class="col-md-8 mb-7">
-                    <h4 class="text-white"> Rapprochons nous et retrouvons nous !</h4>
-                    <h1 class="display-4 font-weight-bold text-white">Comhelp</h1>
-                    <div class="container">
-                    <% if user_signed_in? %>
-                      <%= link_to "Poster votre annonce", new_post_path,  :class => "btn btn-primary" %>
-                    <% else %>
-                      <%= link_to "Connectez-vous", new_user_session_path, class: 'btn btn-dark  ml-2 mr-0 text-light'%>
-                    <%end%>
-                  </div>
+          <div class="row justify-content-between align-items-center h-100">
+            <div class="col-md-8 mb-7">
+                <h4 class="text-white"> Rapprochons-nous et retrouvons-nous !</h4>
+                <h1 class="display-6 font-weight-bold text-white">ComHelp</h1>
+                <div class="container pl-0">
+                  <% if user_signed_in? %>
+                    <%= link_to "Poster votre annonce", new_post_path,  :class => "btn btn-primary" %>
+                  <% else %>
+                    <%= link_to "Connectez-vous", new_user_session_path, class: 'btn btn-dark  ml-2 mr-0 text-light'%>
+                  <%end%>
                 </div>
             </div>
+          </div>
         </div>
 </section>
 
 
-<section class="py-4 bg-grad counter counter-small">
+<section class="py-3 bg-grad counter counter-small">
 		<div class="container">
 			<div class="row">
 				<!-- count item -->
         <div class="col-md-3 col-6">
           <div class="counter-item text-center">
-            <i class="fas fa-users fa-5x"></i>
+            <i class="fas fa-users fa-3x"></i>
             <h2 class="counter-item-digit" data-from="0" data-to="<%=User.all.length%>" data-speed="3000" data-refresh-interval="10"><%=User.all.length%></h2>
             <p class="counter-item-text">Nombre d'helper</p>
         </div>
@@ -32,7 +32,7 @@
 				<!-- count item -->
         <div class="col-md-3 col-6">
         <div class="counter-item text-center">
-          <i class="fas fa-scroll fa-5x"></i>
+          <i class="fas fa-scroll fa-3x"></i>
           <h2 class="counter-item-digit" data-from="0" data-to="<%=Post.all.length%>" data-speed="3000" data-refresh-interval="10"><%=Post.all.length%></h2>
           <p class="counter-item-text">Nombre d'annonces</p>
         </div>
@@ -41,7 +41,7 @@
 				<!-- count item -->
 				<div class="col-md-3 col-6">
         <div class="counter-item text-center">
-          <i class="fas fa-hands-helping fa-5x"></i>
+          <i class="fas fa-hands-helping fa-3x"></i>
           <h2 class="counter-item-digit" data-from="0" data-to="<%=Participation.all.length%>" data-speed="3000" data-refresh-interval="10"><%=Participation.all.length%></h2>
           <p class="counter-item-text">Nombre de Coups de mains</p>
         </div>
@@ -50,7 +50,7 @@
 				<!-- count item -->
 				<div class="col-md-3 col-6">
         <div class="counter-item text-center">
-          <i class="fas fa-building fa-5x"></i>
+          <i class="fas fa-building fa-3x"></i>
           <h2 class="counter-item-digit" data-from="0" data-to="<%=City.all.length%>" data-speed="3000" data-refresh-interval="10"><%=City.all.length%></h2>
           <p class="counter-item-text">Nombre de villes </p>
         </div>
@@ -71,24 +71,22 @@
 
 <h1 class="text-center text-primary">Nos catégories</h1>
 
-<div class="row">
+<div class="row ml-2">
   <%@category.each do |category|%>
       <div class="card mx-auto my-4 shadow" style="width: 20rem;">
-					<div class="portfolio-card-body" id="category-list">
-            <div class="portfolio-card-header">
-                <%= link_to(image_tag(category.picture_url), category_path(category.id) )%>
-            </div> 
-            <%= link_to category.name, category_path(category.id)%>
-          </div>
+					<button class="btn outline-button" id="category-list">
+           
+            <%= link_to category.name, category_path(category.id), :class =>"text-dark"%>
+          </button>
       </div>
   <%end%>
 </div>
 
-<div class="bg-grad border-radius-3 py-5 all-text-white">
+<div class="bg-grad border-radius-3 py-3 all-text-white">
 <h2 class="alt-font p-2 p-sm-3 text-center">"Seuls, nous pouvons faire si peu ; ensemble, nous pouvons faire beaucoup" <span class="text-dark">Helen Keller</span></h2>
 </div>
 
-<h1 class="display-4 text-center">
+<h1 class="mt-3 text-center">
 <span class="text-primary">Nos dernières annonces</span>
 </h1>
 
