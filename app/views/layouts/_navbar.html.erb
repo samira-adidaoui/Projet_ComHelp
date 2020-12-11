@@ -31,47 +31,25 @@
               </div>
             </li>
           <%end%>
-        </ul>
-      </div>
-      <div class="d-flex justify-content-end">
-        <ul class="navbar-nav mr-auto" >
-          
+            
           <% if user_signed_in? %>
-          <li class="nav-item p-2">
-            <%= link_to "Créer une annonce", new_post_path, :class => "nav-link" %>
-          </li>
+            <li class="nav-item active">
+              <%= link_to "Créer une annonce", new_post_path, :class => "nav-link" %>
+            </li>
           <%end%>
 					<% if user_signed_in? && current_user.is_admin %>
-          <li class="nav-item p-2">
-            <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>
-          </li>
+            <li class="nav-item active">
+              <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>
+            </li>
           <% end %>
           
-          <li class="nav-item dropdown p-2">
-            
-            <%= link_to 'Sélection par catégorie'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
-
-            <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
-              
-              <%= link_to "Bricolage", category_path(1), :class => "dropdown-item" %>
-              <%= link_to "Jardinage", category_path(2), :class => "dropdown-item" %>
-              <%= link_to "Soutien scolaire", category_path(3), :class => "dropdown-item" %>
-              <%= link_to "Garde d'enfants", category_path(4), :class => "dropdown-item" %>
-              <%= link_to "Déménagement", category_path(5), :class => "dropdown-item" %>
-              <%= link_to "Dons de matériel", category_path(6), :class => "dropdown-item" %>
-              <%= link_to "Service à la personne", category_path(7), :class => "dropdown-item" %>
-              <%= link_to "Animaux", category_path(8), :class => "dropdown-item" %>
-              <%= link_to "Informatique/Bureautique", category_path(9), :class => "dropdown-item" %>
-              <%= link_to "Administratif", category_path(10), :class => "dropdown-item" %>
-            </div>
-	        </li>
-          <li class="nav-item p-2">
+          <li class="nav-item active">
             <%= link_to "A Propos", team_index_path, :class => "nav-link" %>
           </li>
         </ul>
       </div> 
     </div>
-  </nav>
+</nav>
 
 
   
