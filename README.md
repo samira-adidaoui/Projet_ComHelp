@@ -1,5 +1,5 @@
 # README
-![ComHelp](https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg=100x20)
+![ComHelp](https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg =100x20)
 
 Welcome to the Github repository of our Comhelp app !
 
@@ -16,15 +16,15 @@ Many more features are in store and should be implemented soon, so stay tuned !
 
 # Our team :
 
-  Brice Arby
-  Alex Balomog
-  Samira Adidaoui
-  Guillaume Redon
-  Marine Kouadio
+  *Brice Arby
+  *Alex Balomog
+  *Samira Adidaoui
+  *Guillaume Redon
+  *Marine Kouadio
 
 # Project Links :
 
-  CompHelp website: https://projet-comhelp.herokuapp.com/
+  CompHelp website: https://projet-comhelp.herokuapp.com/ &nbsp;
   To connect as a Admin user, use this :
 
     login: comhelp@yopmail.com -- 
