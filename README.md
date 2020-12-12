@@ -1,15 +1,15 @@
 # README
 <div style="text-align:center"><img src="https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg" width="200" height="200"></div>
-Welcome to the Github repository of our Comhelp app !
+Welcome to the Github repository of Comhelp's app !
 
 Comhelp is a free classified-ad website where you can ask other users for help, guidance and various types of things based on categories.
 
-All you need to post an classified-ad is to sign up. After signup, you receive an email to confirm your registration. From your personal account page, you can update your information, get a listing of post you’ve created and answered and post a new classified-ad.
+All you need to post a classified-ad is to sign up. After sign up, you receive an email to confirm your registration. From your personal account page, you can update your information, get a listing of post you’ve created and answered, and post a new classified-ad.
 
-As soon as an ad is submitted and validated by an admin, will be visible on the landing page. Any registered user is then allowed to click a button to answer a post. 
+As soon as a post is submitted and validated by an admin, it will be visible on the landing page. Any registered user is then allowed to answer to your post. 
 For each new classified-ad validated a tweet is made on our twitter account
 
-The original poster of the classified-ad still has a right to reject your proposal.
+The original poster of the classified-ad still has a right to reject a proposal.
 
 
 # Our team :
