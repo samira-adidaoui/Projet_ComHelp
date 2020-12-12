@@ -1,4 +1,5 @@
 # README
+![ComHelp](https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg) 
 
 Welcome to the Github repository of our Comhelp app !
 
@@ -23,8 +24,14 @@ Many more features are in store and should be implemented soon, so stay tuned !
 
 # Project Links :
 
-  [App ](https://projet-comhelp.herokuapp.com/)
-  [App :](https://twitter.com/SAdidaoui)
+  [ComHelp app ](https://projet-comhelp.herokuapp.com/)
+  To connect as a Admin user, use this credentials :
+
+    login: comhelp@yopmail.com -- 
+    
+    Password :"123456"
+
+  [Twitter app :](https://twitter.com/SAdidaoui)
  
 # How to use
 
