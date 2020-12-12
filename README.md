@@ -1,6 +1,5 @@
 # README
-![ComHelp](https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg =100x20)
-
+<div style="text-align:center"><img src="https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg" width="200" height="200"></div>
 Welcome to the Github repository of our Comhelp app !
 
 Comhelp is a free classified-ad website where you can ask other users for help, guidance and various types of things based on categories.
