@@ -4,14 +4,13 @@ Welcome to the Github repository of our Comhelp app !
 
 Comhelp is a free classified-ad website where you can ask other users for help, guidance and various types of things based on categories.
 
-All you need to post an ad is to sign up. after signup, users get an email and. From your personal account page you can update your info, get a listing of ads you’ve created and answered and post a new ad.
+All you need to post an classified-ad is to sign up. After signup, you receive an email to confirm your registration. From your personal account page, you can update your information, get a listing of post you’ve created and answered and post a new classified-ad.
 
-As soon as an ad is submitted and validated (we can’t just let anyone post anything), it shows on the app’s landing page. Any registered user is then allowed to click a button to answer an ad. 
+As soon as an ad is submitted and validated by an admin, will be visible on the landing page. Any registered user is then allowed to click a button to answer a post. 
 For each new classified-ad validated a tweet is made on our twitter account
 
-The original poster of the ad still has a right to reject your proposal for whatever reason he or she deems right.
+The original poster of the classified-ad still has a right to reject your proposal.
 
-Many more features are in store and should be implemented soon, so stay tuned !
 
 # Our team :
 
@@ -30,7 +29,7 @@ Many more features are in store and should be implemented soon, so stay tuned !
     
     Password :"123456"
 
- Twitter accont: https://twitter.com/SAdidaoui
+ Twitter account: https://twitter.com/SAdidaoui
  
 # How to use
 
