@@ -97,15 +97,23 @@
         <h2 class="lead-color"><b>Mes annonces :</b></h2>
             <ul>
               <% @user.created_posts.each do |post| %>
-              <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %> </li>
+              <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %> 
+              <% if post.is_validated != true %>
+                 <span class= "font-italic text-uppercase text-danger"> Votre annonce est en cours de validation </span>
+                
+                <% end %>
+              </li>
              <% end %>
             </ul>
         <% else %>
           <% if @user.created_posts.count != 0 %>
             <h2 class="lead-color"><b>Annonces postées par <%= @user.first_name %> :</b></h2>
+
             <ul>
               <% @user.created_posts.each do |post| %>
-              <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %> </li>
+              
+                <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %> </li>
+                
              <% end %>
             </ul>
           <% else %>

@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-	  default from: 'nepasrepondre@yopmail.com'
+	  default from: 'marinekouadio@yahoo.fr'
 
 	def new_ad_notification(post)
 

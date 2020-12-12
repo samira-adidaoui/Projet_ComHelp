@@ -1,7 +1,7 @@
 module Admin
 
 class ApplicationController < ::ApplicationController
-  before_action :only_admin
+  #before_action :only_admin
 
   private
 
