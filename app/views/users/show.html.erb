@@ -1,0 +1,148 @@
+
+<p><%= link_to "Messagerie", conversations_index_path, :class => "btn btn-warning pull-right"  %></p>
+
+<div class="row">
+    <div class="col-md-4" style="background-image: url(https://images.pexels.com/photos/4113831/pexels-photo-4113831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);"></div>
+       <div class="col-md-1"></div>
+         <div class="col-md-5">
+         <br>
+         <% if user_signed_in? && current_user.id == @user.id %>
+           <div class="card border" >
+             <div class="card-body">
+               <h4><b>Mes données personnelles :</b></h4>
+               <hr>
+                  <ul class="list">
+                      <li class="text-dark mt-3">Mon <b>prénom</b> : <%= @user.first_name %></li>
+                      <li class="text-dark mt-3">Mon <b>nom</b> : <%= @user.last_name %></li>
+                      <li class="text-dark mt-3">Mon <b>e-mail</b> : <%= @user.email %></li>
+                       <li class="text-dark mt-3"><b>Nombre d'avis favorables / défavorables</b> :  
+                      <span>
+                        <button type="button" class="like btn btn-success no-click">
+                          <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                          <span class="badge"><%= @user.get_upvotes.size %></span>
+                        </button>
+                      </span>
+
+                      <span>
+                        <button type="button" class="like btn btn-danger no-click">
+                          <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                          <span class="badge"><%= @user.get_downvotes.size %></span>
+                        </button>
+                      </span>
+                 </li></ul>
+                 <hr>
+                   <hr>
+                   <h6 class="profile-pad">Je souhaite modifier mes données personnelles ou mon mot de passe ?</h6>
+                   <%= link_to "C'est par ici !", edit_user_registration_path(@user.id), class: 'btn btn-primary profile-btn' %>
+             </div>
+            </div>
+          <% else %>
+          <div class="card border">
+            <div class="card-body">
+              <h4><b>Données personnelles de <%= @user.first_name %> :</b></h4>
+              <hr>
+              <ul class="list">
+                  <li class="text-dark mt-3"><b>Prénom</b> : <%= @user.first_name %></li>
+                   <li class="text-dark mt-3"><b>Nom</b> : <%= @user.last_name %></li>
+                   <li class="text-dark mt-3"><b>Adresse e-mail</b> : <%= @user.email %></li>
+                  <% if user_signed_in? && user_is_allowed_to_vote? && ! current_user.find_voted_items.include?(@user) %>
+                      <%= link_to like_user_path(@user), method: :put, remote: true do %>
+                        <span>
+                          <button type="button" class="like btn btn-success">
+                            <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                          <span class="badge"><%= @user.get_upvotes.size %></span>
+                          </button>
+                        </span>
+                      <% end %>
+                     <%= link_to unlike_user_path(@user), method: :put, remote: true do %>
+                        <span>
+                          <button type="button" class="dislike btn btn-danger">
+                            <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                          <span class="badge"><%= @user.get_downvotes.size %></span>
+                          </button>
+                        </span>
+                     <% end %>
+                     <li class="text-dark mt-3">
+                    <h6><b>Veuillez noter cet utilisateur en cliquant sur l'une des deux icônes.</b></h6>                 
+                    <% else %>
+                     <li class="text-dark mt-3"><b>Nombre d'avis favorables / défavorables</b>
+                      <span>
+                        <button type="button" class="like btn btn-success no-click">
+                          <i class="far fa-thumbs-up" aria-hidden="true"></i>
+                          <span class="badge"><%= @user.get_upvotes.size %></span>
+                        </button>
+                      </span>
+                      <span>
+                        <button type="button" class="dislike btn btn-danger no-click">
+                          <i class="far fa-thumbs-down" aria-hidden="true"></i>
+                          <span class="badge"><%= @user.get_downvotes.size %></span>
+                        </button>
+                      </span>
+                      </li>
+                      <small>Vous ne pouvez attribuer un vote à un utilisateur que s'il répondu à une de vos annonces ou posté une annonce à laquelle vous avez répondu.</small>
+                    <% end %>
+                  </ul>
+
+              <hr>
+              <h6 class="profile-pad">Vous souhaitez envoyer un message privé à <%= @user.first_name %> ?</h6>
+              <%= link_to "Envoyer un message",  conversations_path(sender_id: current_user.id,  receiver_id: @user), method: 'post', class: 'btn btn-primary profile-btn' %>
+            </div>
+          </div>
+      <% end %>
+        <br>
+        <hr>
+        <br>
+    
+      <% if user_signed_in? && current_user.id == @user.id %>
+        <h2 class="lead-color"><b>Mes annonces :</b></h2>
+            <ul>
+              <% @user.created_posts.each do |post| %>
+                <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %> 
+                  <% if post.is_validated != true %>
+                    <span class= "font-italic text-uppercase text-danger"> Votre annonce est en cours de validation </span>
+                    
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+        <% else %>
+          <% if @user.created_posts.count != 0 %>
+            <h2 class="lead-color"><b>Annonces postées par <%= @user.first_name %> :</b></h2>
+
+            <ul>
+              <% @user.created_posts.each do |post| %>
+              
+                <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %> </li>
+                
+             <% end %>
+            </ul>
+          <% else %>
+            <h2 class="lead-color"><b><%= @user.first_name %> n'a encore posté aucune annonce.</b></h2>
+          <% end %>
+        <br>
+      <% end %>
+              <% if user_signed_in? && current_user.id == @user.id %>
+                <h2 class="lead-color"><b>Les annonces auxquelles j'ai répondu :</b></h2>
+                  <ul>
+                    <% @user.answered_posts.each do |post| %>
+                      <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
+                    <% end %>
+                  </ul>
+              <% else %>
+                <% if @user.answered_posts.count != 0 %>
+                  <h2 class="lead-color"><b>Les annonces auxquelles <%= @user.first_name %> a répondu :</b></h2>
+                  <ul>
+                    <% @user.answered_posts.each do |post| %>
+                      <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
+                    <% end %>
+                  </ul>
+                <% else %>
+            <h2 class="lead-color"><b><%= @user.first_name %> n'a encore répondu à aucune annonce.</b></h2>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <br>
+    <br>
+    <br>
+    <%= link_to "Créer une nouvelle annonce", new_post_path,  :class => "btn btn-outline-primary text-center pull-right" %>
