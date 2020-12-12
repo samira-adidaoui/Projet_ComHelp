@@ -15,11 +15,11 @@ Many more features are in store and should be implemented soon, so stay tuned !
 
 # Our team :
 
-  *Brice Arby
-  *Alex Balomog
-  *Samira Adidaoui
-  *Guillaume Redon
-  *Marine Kouadio
+  * Brice Arby
+  * Alex Balomog
+  * Samira Adidaoui
+  * Guillaume Redon
+  * Marine Kouadio
 
 # Project Links :
 
