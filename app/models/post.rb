@@ -1,8 +1,8 @@
 require 'twitter'
 
 class Post < ApplicationRecord
-   #after_create :email_to_admin
-	#after_commit :automatic_tweet
+   after_create :email_to_admin
+	 after_commit :automatic_tweet
 
     belongs_to :user
     belongs_to :category
@@ -15,8 +15,8 @@ class Post < ApplicationRecord
     validates :description, presence: true, length: { in: 20..1000}
    
 
-    def notif_new
-	AdminMailer.new_ad_notification(self).deliver_now
+    def email_to_admin
+	    AdminMailer.new_ad_notification(self).deliver_now
     end
 
     include AlgoliaSearch
