@@ -16,7 +16,7 @@ class Post < ApplicationRecord
    
 
     def email_to_admin
-	AdminMailer.new_ad_notification(self).deliver_now
+	    AdminMailer.new_ad_notification(self).deliver_now
     end
 
     include AlgoliaSearch
