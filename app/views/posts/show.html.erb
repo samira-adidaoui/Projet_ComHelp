@@ -20,7 +20,7 @@
 
 						<div class="list-group-inline list-group-number list-unstyled mt-4">
 						 <p> Nombre de Paticipants: <%= @participant.count %></p>
-						 Participant(s):
+						Participant(s):
 						<%@participant.each do |participant|%>
 							<% if user_signed_in? %>
 								<%= link_to participant.user.first_name, user_path(participant.user.id)%> /
@@ -43,7 +43,7 @@
 				<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
 					<img class="card-img" src="<%=@post.category.picture_url%>">
 				<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
-					</div>
+				</div>
 				</div>
 			</div>
 			<%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-outline-warning btn-sm', style: 'margin-right: 10px' %>
