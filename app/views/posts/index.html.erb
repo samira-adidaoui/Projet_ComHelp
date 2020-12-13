@@ -62,16 +62,17 @@
 <!--Searchbox-->
   <h3 class="mt-3 ml-3">Rechercher une annonce</h3>
   <div class="right-panel mt-3 ml-3">
-    <div id="searchbox"></div>
+    <div class="row-xs-2" id="searchbox">
+    
+      <%= image_tag(("https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/search-by-algolia-light-background.svg"))%>
+    </div>
   </div>
 <!-- Fin Searchbox-->
 
-<div id="hits">
-  
-</div>
+<div id="hits"></div>
 
 
-<h1 class="text-center text-primary">Nos catégories</h1>
+<h1 class="text-center text-primary mt-2">Nos catégories</h1>
 
 <div class="row ml-2">
   <%@category.each do |category|%>
