@@ -1,15 +1,15 @@
 <div class = "col-md-5 col-lg-5 mt-5">
   <%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-info btn-sm', style: 'margin-right: 10px' %>
 </div>
-<div class="row vh-100">
+<div class="row">
   <div class = "col-md-10 col-lg-6 d-flex flex-column mt-1">
     <% if user_signed_in? && current_user.id == @user.id %>
-      <%= image_tag("https://image.freepik.com/vecteurs-libre/ajouter-illustration-concept-notes_114360-3376.jpg") %>
+      <%= image_tag("https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Page+profile/page+profile.jpg") %>
       <div class = "col-md-5 col-lg-5 d-flex flex-column mt-1">
         <%= link_to "Créer une nouvelle annonce", new_post_path,  :class => "btn btn-outline-primary text-center pull-right" %>
       </div>
     <%else%>
-      <%= image_tag("https://image.freepik.com/vecteurs-libre/illustration-concept-collaboration-direct_114360-633.jpg") %>
+      <%= image_tag("https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Page+profile/page+profile+visiteur.jpg") %>
     <% end %>
   </div>
     <div class="col-md-4">
