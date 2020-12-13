@@ -23,8 +23,9 @@ search.addWidgets([
       item: 
         `
           <div class="card mx-auto my-4 shadow" style="width: 25rem;">
-            <div class="name my-3 text-center font-weight-bold">{{{_highlightResult.title.value}}}</div>
-            <div class="description text-center m-3">{{{_highlightResult.description.value}}}</div>
+          <div class="title my-3 text-center font-weight-bold">{{{_highlightResult.title.value}}}</div>
+          <div class="description text-center m-3">{{{_highlightResult.description.value}}}</div>
+          <a href="/posts/:id" class="btn btn-primary"><Voir détail</a>
           </div>
       `
     },
