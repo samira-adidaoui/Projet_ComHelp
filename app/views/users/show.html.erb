@@ -96,7 +96,7 @@
         <hr>
     
       <% if user_signed_in? && current_user.id == @user.id %>
-        <h2 class="lead-color"><b>Mes annonces :</b></h2>
+        <p><b>Mes annonces :</b></p>
             <ul>
               <% @user.created_posts.each do |post| %>
                 <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %> 
@@ -109,7 +109,7 @@
             </ul>
       <% else %>
           <% if @user.created_posts.count != 0 %>
-            <h2 class="lead-color"><b>Annonces postées par <%= @user.first_name %> :</b></h2>
+            <p><b>Annonces postées par <%= @user.first_name %> :</b></p>
 
             <ul>
               <% @user.created_posts.each do |post| %>
@@ -119,12 +119,12 @@
              <% end %>
             </ul>
           <% else %>
-            <h2 class="lead-color"><b><%= @user.first_name %> n'a encore posté aucune annonce.</b></h2>
+            <p class="lead-color"><b><%= @user.first_name %> n'a encore posté aucune annonce.</b><p>
           <% end %>
         <br>
       <% end %>
               <% if user_signed_in? && current_user.id == @user.id %>
-                <h2 class="lead-color"><b>Les annonces auxquelles j'ai répondu :</b></h2>
+                <p><b>Les annonces auxquelles j'ai répondu :</b></p>
                   <ul>
                     <% @user.answered_posts.each do |post| %>
                       <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
@@ -132,14 +132,14 @@
                   </ul>
               <% else %>
                 <% if @user.answered_posts.count != 0 %>
-                  <h2 class="lead-color"><b>Les annonces auxquelles <%= @user.first_name %> a répondu :</b></h2>
+                  <p><b>Les annonces auxquelles <%= @user.first_name %> a répondu :</b><p>
                   <ul>
                     <% @user.answered_posts.each do |post| %>
                       <li><%= link_to "#{post.title}", post_path(post.id) %>, le <%= post.datetime %>, annonce postée par <%= post.user.first_name %> </li>
                     <% end %>
                   </ul>
                 <% else %>
-            <h2 class="lead-color"><b><%= @user.first_name %> n'a encore répondu à aucune annonce.</b></h2>
+            <p><b><%= @user.first_name %> n'a encore répondu à aucune annonce.</b><p>
             <% end %>
           <% end %>
         </div>
