@@ -46,7 +46,7 @@
 				</div>
 				</div>
 			</div>
-			<%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-outline-warning btn-sm', style: 'margin-right: 10px' %>
+			<%= link_to "Revenir à l'accueil", root_path, class: 'btn btn-info btn-sm', style: 'margin-right: 10px' %>
 			<% if user_signed_in? %>
 				<% if current_user.answered_posts.all.include?(@post) %>
 					<%= link_to "Annuler mon inscription", post_participation_path(@post), method: :delete, data: { confirm: 'Êtes vous sûrs? ' }, class:'btn btn-danger btn-sm' %>			
