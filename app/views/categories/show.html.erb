@@ -27,11 +27,7 @@
             <% if @post.count == 0%>
                 <h4 class="text-danger font-weight-bold "> Aucune annonce n'a été publié pour cette catégorie !</h4>
             <%end%>
-            <%@post.where(is_validated: nil).each do |post|%>
-                <div class="col-md-4  mb-4 mt-4">
-                    <p class="text-info "> Nombre annonce en cours de validation :  <%= @post.count %></p>
-                </div>
-            <%end%>
+            
         </div>
     </div>        
 </section>
