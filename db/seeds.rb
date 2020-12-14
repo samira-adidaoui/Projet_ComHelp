@@ -65,7 +65,7 @@ end
     picture_url: picture_array[i])
 end
 
-1.times do
+5.times do
     User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end  
 
@@ -75,7 +75,9 @@ post_titles.length.times do |i|
     Post.create(datetime: rand(t1..t2), title: post_titles[i], user: User.all.sample, description: Faker::Lorem.sentence(word_count: 30), city: City.all.sample, category: Category.all.sample)
   end
 
-1.times do
+5.times do
     Participation.create(user: User.all.sample, post: Post.all.sample)
 end
 
+
+User.create(first_name: "Admin", last_name: "admin", email: "comhelp@yopmail.com", password: "123456", is_admin: true)
