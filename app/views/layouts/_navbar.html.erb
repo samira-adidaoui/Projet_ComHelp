@@ -1,55 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="d-flex justify-content-start">
-        <ul class="navbar-nav mr-auto">
-          <li class="col-sm-2">
-            <img src="https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg" alt="logo" class="img-responsive">
-          </li>
-          
+     
+      <ul class="navbar-nav mr-auto">
+                  
+        <li class="nav-item active col-sm-2">
+          <%= link_to(image_tag("https://comhelp.s3.eu-west-3.amazonaws.com/comhelp/Logo/imageonline-co-transparentimage.jpg"), root_path) %>
+        </li >
+        <%if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Accueil", root_path, :class => "nav-link" %>
+            <%= link_to "Mon Profil", user_path(:id => current_user.id), :class => "font-weight-bold nav-link text-dark" %>
           </li>
-          <%if user_signed_in? %>
-          <li class="nav-item dropdown">
-          <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
-
-            <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
-              
-              <%= link_to "Mon Profil", user_path(:id => current_user.id), :class => "dropdown-item" %>
-              <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, :class => "dropdown-item" %>
-            </div>
-          </li>
-          <%else %>
-            <li class="nav-item dropdown">
-              <%= link_to 'Mon compte'.html_safe, root_path, :id => 'navbarDropdown', :role => 'button', :'data-toggle' => 'dropdown', :'aria-haspopup' => "true", :'aria-expanded' => "false", :class => 'nav-link dropdown' %>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                <%= link_to "Se connecter", new_user_session_path, :class => "dropdown-item" %>
-                <%= link_to "Nouveau client?",  new_user_registration_path, :class => "dropdown-item"%>
-              </div>
-            </li>
-          <%end%>
-            
-          <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Créer une annonce", new_post_path, :class => "nav-link" %>
-            </li>
-          <%end%>
-					<% if user_signed_in? && current_user.is_admin %>
-            <li class="nav-item active">
-              <%= link_to "Interface administrateur", admin_root_path, :class => "nav-link" %>
-            </li>
-          <% end %>
-          
           <li class="nav-item active">
-            <%= link_to "A Propos", team_index_path, :class => "nav-link" %>
+            <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, :class => "font-weight-bold nav-link text-dark" %> 
           </li>
-        </ul>
-      </div> 
-    </div>
-</nav>
+          <li class="nav-item active">
+            <%= link_to "Créer une annonce", new_post_path, :class => "font-weight-bold nav-link text-dark"  %>
+          </li>
+        <%else %>
+          <li class="nav-item active">
+            <%= link_to "Se connecter", new_user_session_path, :class => "font-weight-bold nav-link text-dark" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "S'inscrire", new_user_registration_path, :class => "font-weight-bold nav-link text-dark" %>
+          </li>
+        <%end%>
+          
+        <% if user_signed_in? && current_user.is_admin %>
+          <li class="nav-item active">
+            <%= link_to "Interface administrateur", admin_root_path, :class => "font-weight-bold nav-link"%>
+          </li>
+        <% end %>
+        
+          <li class="nav-item active">
+            <%= link_to "A Propos", team_index_path, :class => "nav-link font-weight-bold" %>
+          </li>
+      </ul>
+    </div> 
+  </nav>
 
 
   
